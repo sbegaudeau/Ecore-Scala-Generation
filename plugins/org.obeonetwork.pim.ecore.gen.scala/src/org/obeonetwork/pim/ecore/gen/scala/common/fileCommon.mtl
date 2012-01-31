@@ -1,0 +1,6 @@
+[comment encoding = UTF-8 /]
+[module fileCommon('http://www.eclipse.org/emf/2002/GenModel', 'http://www.eclipse.org/emf/2002/Ecore')]
+
+[template public genPackage(aGenClass : GenClass)]
+
+[/template]

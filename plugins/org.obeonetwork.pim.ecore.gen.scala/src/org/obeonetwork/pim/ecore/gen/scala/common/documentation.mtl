@@ -1,0 +1,6 @@
+[comment encoding = UTF-8 /]
+[module documentation('http://www.eclipse.org/emf/2002/GenModel', 'http://www.eclipse.org/emf/2002/Ecore')]
+
+[template public genScalaDoc(aGenClass : GenClass)]
+
+[/template]
