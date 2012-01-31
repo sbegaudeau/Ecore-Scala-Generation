@@ -1,0 +1,348 @@
+<!--
+/********************************************************************************
+** Copyright (c) 2012 Obeo.
+** All rights reserved. This program and the accompanying materials
+** are made available under the terms of the Eclipse Public License v1.0
+** which accompanies this distribution, and is available at
+** http://www.eclipse.org/legal/epl-v10.html
+**
+** Contributors:
+**    Stephane Begaudeau (Obeo) - initial API and implementation
+*********************************************************************************/
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="St&eacute;phane B&eacute;gaudeau">    
+
+    <!-- IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/docs.css" rel="stylesheet">
+    
+    <title>Ecore to Scala Generator</title>
+  </head>
+  <body data-spy="scroll" data-target=".subnav" data-offset="50">
+    <!-- Navbar -->
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="./index.html">Ecore to Scala Generation</a>
+          <div class="nav-collapse">
+            <ul class="nav">
+              <li class="">
+                <a href="./index.html">Home</a>
+              </li>
+              <li class="active">
+                <a href="./journal.html">Development Journal</a>
+              </li>
+              <li class="">
+                <a href="./contribution.html">Contribution</a>
+              </li>
+              <li class="">
+                <a href="./download.html">Download</a>
+              </li>
+              <li class="">
+                <a href="./about.html">About</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="container">
+      <header class="jumbotron subhead" id="overview">
+        <h1>Development Journal</h1>
+        <p class="lead">Detailled explanation on the development of this code generator.</p>
+        <div class="subnav">
+          <ul class="nav nav-pills">
+            <li><a href="#prologue">Prologue</a></li>
+            <li><a href="#initialization">Initialization</a></li>
+            <li><a href="#files-generation">Files generation</a></li>
+            <li><a href="#naming-and-types">Naming and types</a></li>
+            <li><a href="#documentation">Documentation</a></li>
+            <li><a href="#launcher">Launcher</a></li>
+            <li><a href="#ui">UI</a></li>
+            <li><a href="#build">Build</a></li>
+            <li><a href="#deployment">Deployment</a></li>
+          </ul>
+        </div>
+      </header>
+      
+      <section id="prologue">
+        <div class="page-header">
+          <h1>Prologue <small>Useful resources to start a code generation project.</small></h1>
+        </div>
+
+        <h2>Official websites</h2>
+        <p>
+          In order to start a brand new code generation project with Acceleo, you first to be sure that
+          you have all the necessary resources to find the answer to all your questions. From the official
+          website to wikipedia, here is a list of the key places where to find Acceleo related content.        
+        </p>
+        
+        <table class="table table-bordered table-striped">
+          <thead>
+            <tr>
+              <th>Site</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><a href="http://www.eclipse.org/acceleo">Homepage</a></td>
+              <td>The official website is the central hub for all Acceleo related content.</td>
+            </tr>
+            <tr>
+              <td><a href="http://wiki.eclipse.org/Acceleo">Eclipse Wiki</a></td>
+              <td>The official wiki contains the documentation of the Acceleo language and the information about the Acceleo project.</td>
+            </tr>
+            <tr>
+              <td><a href="http://www.obeonetwork.com/acceleo">Obeo Network</a></td>
+              <td>On the Obeo Network, you will find the user guide with presentations of all the features of Acceleo with videos.</td>
+            </tr>
+            <tr>
+              <td><a href="http://en.wikipedia.org/wiki/Acceleo">Wikipedia</a></td>
+              <td>Want to learn more about the history of the Acceleo project? Wikipedia is the place to go.</td>
+            </tr>
+          </tbody>
+        </table>
+        
+        <h2>Documentation</h2>
+        <p>
+          Along with those official websites, if you had to bookmarked only a couple links to critical information
+          on Acceleo, you should definitely keep those direct links to the best part of the documentation.
+        </p>
+        
+        <table class="table table-bordered table-striped">
+          <thead>
+            <tr>
+              <th>Site</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><a href="http://www.obeonetwork.com/page/acceleo-310-user-guide">User Guide</a></td>
+              <td>The complete Acceleo user guide presenting all the features in details with videos.</td>
+            </tr>
+            <tr>
+              <td><a href="http://docs.obeonetwork.com/acceleo/best-practices">Best Practices Guide</a></td>
+              <td>The best practices guide contains all the best tips and tricks to build your generator.</td>
+            </tr>
+            <tr>
+              <td><a href="http://wiki.eclipse.org/Acceleo/Acceleo_Operations_Reference">Acceleo Operations Reference</a></td>
+              <td>The complete list of all the operations provided by Acceleo with their documentation.</td>
+            </tr>
+            <tr>
+              <td><a href="http://wiki.eclipse.org/Acceleo/OCL_Operations_Reference">OCL Operations Reference</a></td>
+              <td>The complete list of all the operations provided by OCL with their documentation.</td>
+            </tr>
+          </tbody>
+        </table>
+        
+        <h2>Support</h2>
+        <p>
+          Got a problem? Need help? The Acceleo development team provides support through different websites.
+        </p>
+        
+        <table class="table table-bordered table-striped">
+          <thead>
+            <tr>
+              <th>Site</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><a href="http://www.eclipse.org/forums/index.php/f/24/">Official Forum</a></td>
+              <td>The official forum is the place where you will find most of the questions and answers related to Acceleo.</td>
+            </tr>
+            <tr>
+              <td><a href="http://stackoverflow.com/questions/tagged/acceleo">Stack Overflow</a></td>
+              <td>The Acceleo development team also monitors Acceleo related questions on Stack Overflow.</td>
+            </tr>
+            <tr>
+              <td><a href="http://www.obeo.fr/pages/maintenance-and-support/">Enterprise Support</a></td>
+              <td>For those who need enterprise support with the advanced traceability.</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+      
+       <section id="initialization">
+        <div class="page-header">
+          <h1>Initialization <small>Let's start the creation of the generator.</small></h1>
+        </div>
+        
+        <h2>Naming conventions and Structure of the project.</h2>
+        <p>
+          I recommend that an Acceleo project should be named following the given convention:
+          <code>&lt;domain&gt;.&lt;input-metamodel&gt;.gen.&lt;output-language&gt;</code>
+          For this project, I will use the following name: "org.obeonetwork.pim.ecore.gen.scala" since
+          my input models will use the metamodel "Ecore" from EMF to generate "Scala" source code. I
+          like to use the prefix "pim" to indicate a "platform independent model". By default, Acceleo
+          will use the name of the project as its root package, the sub-packages will be named by using
+          the naming convention from the best practices guide.
+        </p>
+        <p>
+          With Acceleo, one of the first advice given to newcomers is to consider one Acceleo module for
+          each kind of file that will be generated. For the Scala language, we will generate three kind
+          of files:
+        </p>
+        <ul>
+          <li>Scala classes</li>
+          <li>Scala traits</li>
+          <li>Scala objects</li>
+        </ul>
+        <p>
+          I personnaly like to name the files that generate content with the following convention:
+          <code>&lt;kind-of-file&gt;&lt;extension&gt;File</code>. As such, I will need those three
+          modules.
+        </p>
+        <ul>
+          <li>org::obeonetwork::pim::ecore::gen::scala::files::<strong>classScalaFile</strong></li>
+          <li>org::obeonetwork::pim::ecore::gen::scala::files::<strong>traitScalaFile</strong></li>
+          <li>org::obeonetwork::pim::ecore::gen::scala::files::<strong>objectScalaFile</strong></li>
+        </ul>
+        <p>
+          After this, I need to create the starting point of the generation, the main module. I named this
+          module after the technologies used in the generator "ecoreGenScala" and its main template "main".
+          Now, I'll create five utility modules in order to handle a specific problem of the generation. They
+          will be placed inside of the common package.
+        </p>
+        <ul>
+          <li>org::obeonetwork::pim::ecore::gen::scala::common::<strong>documentation</strong></li>
+          <li>org::obeonetwork::pim::ecore::gen::scala::common::<strong>fileCommon</strong></li>
+          <li>org::obeonetwork::pim::ecore::gen::scala::common::<strong>import</strong></li>
+          <li>org::obeonetwork::pim::ecore::gen::scala::common::<strong>name</strong></li>
+          <li>org::obeonetwork::pim::ecore::gen::scala::common::<strong>type</strong></li>
+        </ul>
+        <div class="row">
+          <div class="span9">
+            <p>
+              The documentation module will handle all the documentation generated, the import module will deal with the
+              tricky problem of the generation of imports, the name module will gather all the name generated so that another
+              developer will only have to override this module to change the naming conventions of the code generated. Finally
+              the type module will handle all the types during the generation for example, if our model has an attribute with a
+              "0..*" cardinality with possible duplicates and no specific order, this module will determine if we should generate
+              an array of a list (this is one of the place where we will let the user influence the generation). After all those
+              steps, we should have a structure matching the screenshot on the right.
+            </p>
+            <p>
+              After that, I proceed to externalize the variable of the MANIFEST.MF (the name of the plugin and the name of the
+              provider). I will add the "about.html" for the copyright of the plugin once deployed in Eclipse and add the
+              copyright on each modules.
+            </p>
+          </div>
+          <div class="span3">
+            <ul class="thumbnails">
+              <li class="span3">
+              <a href="./img/journal/initialization-project-structure.png" class="thumbnail">
+                <img src="./img/journal/initialization-project-structure_th.png" alt="The structure of the project.">
+              </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      
+      <section id="files-generation">
+        <div class="page-header">
+          <h1>Files generation <small>The organization of the modules generating files.</small></h1>
+        </div>
+        
+        <h2>The "traitScalaFile" example.</h2>
+        <p>
+          The modules generating the files are often the most complex since they need to call lots of other templates and queries
+          and since their indentation will determine the indentation of the generated code. In order to view how this generator
+          structure the generation of the content, we will have a detailled look at the module "traitScalaFile".
+        </p>
+        <p>
+          First of all, the content of the file is generated by a template with the same name as the module (in camel case) preceded
+          by "gen". I use the prefix "gen" for all my public templates and the prefix "req" for all my public queries. For the moment
+          all the templates and queries should be considered as private unless I say otherwise. Inside of this "genTraitScalaFile"
+          template there is the file block with its path computed by a private module named "traitScalaFilePath". I use the naming
+          convention of the best practices guide to name my variables. I also won't use the implicit context in this generator to
+          prevent confusions.
+        </p>
+      </section>
+      
+      <section id="naming-and-types">
+        <div class="page-header">
+          <h1>Naming and types <small>How to let the user customize the generation.</small></h1>
+        </div>
+        <h2>in progress</h2>
+      </section>
+      
+      <section id="documentation">
+        <div class="page-header">
+          <h1>Documentation <small>Management of the user code.</small></h1>
+        </div>
+        <h2>in progress</h2>
+      </section>
+      
+      <section id="launcher">
+        <div class="page-header">
+          <h1>Launcher <small>Configuration used to launch the generation.</small></h1>
+        </div>
+        <h2>in progress</h2>
+      </section>
+      
+      <section id="ui">
+        <div class="page-header">
+          <h1>UI <small>Building the user interface of the generator.</small></h1>
+        </div>
+        <h2>in progress</h2>
+      </section>
+      
+      <section id="build">
+        <div class="page-header">
+          <h1>Build <small>Maven, Ant or programmatically. Your call!</small></h1>
+        </div>
+        <h2>in progress</h2>
+      </section>
+      
+      <section id="deployment">
+        <div class="page-header">
+          <h1>Deployment <small>Deliver the generator</small></h1>
+        </div>
+        <h2>in progress</h2>
+      </section>
+      
+      <footer class="footer">
+        <p class="pull-right"><a href="#">Back to top</a></p>
+        <p><strong>Design shamelessly copied from the open source project <a href="http://twitter.github.com/bootstrap/">Bootstrap</a> by Twitter</strong>.</p>
+        <br />
+        <p>Bootstrap is designed and built with all the love in the world <a href="http://twitter.com/twitter" target="_blank">@twitter</a> by <a href="http://twitter.com/mdo" target="_blank">@mdo</a> and <a href="http://twitter.com/fat" target="_blank">@fat</a>.</p>
+        <p>The code of this page is licensed under the <a href="http://www.apache.org/licenses/LICENSE-2.0" target="_blank">Apache License v2.0</a>.
+        <p>Icons from <a href="http://glyphicons.com">Glyphicons Free</a>, licensed under <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.</p>
+      </footer>
+    </div>
+    
+    
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+    <script src="js/bootstrap/bootstrap-alerts.js"></script>
+    <script src="js/bootstrap/bootstrap-buttons.js"></script>
+    <script src="js/bootstrap/bootstrap-dropdown.js"></script>
+    <script src="js/bootstrap/bootstrap-modal.js"></script>
+    <script src="js/bootstrap/bootstrap-twipsy.js"></script>
+    <script src="js/bootstrap/bootstrap-popover.js"></script>
+    <script src="js/bootstrap/bootstrap-scrollspy.js"></script>
+    <script src="js/bootstrap/bootstrap-tabs.js"></script>
+  </body>
+</html>

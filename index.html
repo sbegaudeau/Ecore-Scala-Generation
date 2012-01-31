@@ -10,16 +10,119 @@
 **    Stephane Begaudeau (Obeo) - initial API and implementation
 *********************************************************************************/
 -->
-<!doctype html>
-<head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="St&eacute;phane B&eacute;gaudeau">    
 
-	<title>Ecore to Scala Generator</title>
-	<meta name="description" content="">
-	<meta name="author" content="St&eacute;phane B&eacute;gaudeau">	
-</head>
-<body>
-	Hello World
-</body>
+    <!-- IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/docs.css" rel="stylesheet">
+    
+    <title>Ecore to Scala Generator</title>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="./index.html">Ecore to Scala Generation</a>
+          <div class="nav-collapse">
+            <ul class="nav">
+              <li class="active">
+                <a href="./index.html">Home</a>
+              </li>
+              <li class="">
+                <a href="./journal.html">Development Journal</a>
+              </li>
+              <li class="">
+                <a href="./contribution.html">Contribution</a>
+              </li>
+              <li class="">
+                <a href="./download.html">Download</a>
+              </li>
+              <li class="">
+                <a href="./about.html">About</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="container">
+      <header class="jumbotron masthead">
+        <div class="inner">
+          <h1>Ecore to Scala</h1>
+          <p>Simple Scala generation from the popular Ecore metamodel.</p>
+          <p class="download-info">
+            <a href="https://github.com/sbegaudeau/Ecore-Scala-Generation" class="btn btn-primary btn-large">View project on GitHub</a>
+            <a href="http://marketplace.obeonetwork.com/" class="btn btn-large">Obeo Marketplace</a>
+          </p>
+        </div>
+
+        <ul class="quick-links">
+          <li><a href="./upgrading.html">Install instructions</a></li>
+          <li><a href="https://github.com/sbegaudeau/Ecore-Scala-Generation/wiki/Roadmap">Issues</a></li>
+          <li><a href="https://github.com/sbegaudeau/Ecore-Scala-Generation/wiki/Roadmap">Roadmap</a></li>
+          <li><a href="https://github.com/sbegaudeau/Ecore-Scala-Generation/wiki/Changelog">Changelog</a></li>
+        </ul>
+      </header>
+      
+      <div class="marketing">
+        <h1>Model driven Scala development</h1>
+        <p class="marketing-byline">Need reasons to love this generator? Look no further.</p>
+        <div class="row">
+          <div class="span4">
+            <img class="bs-icon" src="img/glyphicons/glyphicons_042_group.png">
+            <h2>Open Source</h2>
+            <p>Not only this generator is completely open source and as such, you can download its source code or fork it but it also contains a developer journal with the details of the conception of this generator giving all the informations to start your own code generator.</p>
+          </div>
+          <div class="span4">
+            <img class="bs-icon" src="img/glyphicons/glyphicons_009_magic.png">
+            <h2>Integrated in Eclipse</h2>
+            <p>This generator is seamlessly integrated in Eclipse with a full fledged user interface. From the internal documentation to the run configuration, you can deliver this generator to your end users without having to train them to code generation.</p>
+          </div>
+          <div class="span4">
+            <img class="bs-icon" src="img/glyphicons/glyphicons_082_roundabout.png">
+            <h2>Customizable</h2>
+            <p>What good is a code generator if you can't influence the generated code? With this Scala generator, you can parameterized the generation to generate Scala code following your conventions.</p>
+          </div>
+        </div><!--/row-->
+      </div><!-- /.marketing -->
+      
+      <footer class="footer">
+        <p class="pull-right"><a href="#">Back to top</a></p>
+        <p><strong>Design shamelessly copied from the open source project <a href="http://twitter.github.com/bootstrap/">Bootstrap</a> by Twitter</strong>.</p>
+        <br />
+        <p>Bootstrap is designed and built with all the love in the world <a href="http://twitter.com/twitter" target="_blank">@twitter</a> by <a href="http://twitter.com/mdo" target="_blank">@mdo</a> and <a href="http://twitter.com/fat" target="_blank">@fat</a>.</p>
+        <p>The code of this page is licensed under the <a href="http://www.apache.org/licenses/LICENSE-2.0" target="_blank">Apache License v2.0</a>.
+        <p>Icons from <a href="http://glyphicons.com">Glyphicons Free</a>, licensed under <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.</p>
+      </footer>
+    </div>
+    
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="js/bootstrap/bootstrap-alerts.js"></script>
+    <script src="js/bootstrap/bootstrap-buttons.js"></script>
+    <script src="js/bootstrap/bootstrap-dropdown.js"></script>
+    <script src="js/bootstrap/bootstrap-modal.js"></script>
+    <script src="js/bootstrap/bootstrap-twipsy.js"></script>
+    <script src="js/bootstrap/bootstrap-popover.js"></script>
+    <script src="js/bootstrap/bootstrap-scrollspy.js"></script>
+    <script src="js/bootstrap/bootstrap-tabs.js"></script>
+  </body>
 </html>
