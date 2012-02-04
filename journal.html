@@ -71,13 +71,15 @@
           <ul class="nav nav-pills">
             <li><a href="#prologue">Prologue</a></li>
             <li><a href="#initialization">Initialization</a></li>
-            <li><a href="#files-generation">Files generation</a></li>
-            <li><a href="#naming-and-types">Naming and types</a></li>
+            <li><a href="#files">Files</a></li>
+            <li><a href="#name-and-types">Name and types</a></li>
             <li><a href="#documentation">Documentation</a></li>
             <li><a href="#launcher">Launcher</a></li>
+            <li><a href="#test-debug">Test & Debug</a></li>
             <li><a href="#ui">UI</a></li>
             <li><a href="#build">Build</a></li>
             <li><a href="#deployment">Deployment</a></li>
+            <li><a href="#epilogue">Epilogue</a></li>
           </ul>
         </div>
       </header>
@@ -86,7 +88,17 @@
         <div class="page-header">
           <h1>Prologue <small>Useful resources to start a code generation project.</small></h1>
         </div>
-
+        <h2>Introduction</h2>
+        <p>
+          In order to learn something new in programming, you can read lots of theoretical texts until you
+          master all the concepts but I tend to prefer looking directly at the code with a good explanation
+          in order to see a real life example with all the tips and tricks that come with it. If you are like
+          me, this project is for you. Here, you will be able to find an Ecore to Java generator realized with
+          the best practices in mind. This is not a static example, and it will evolve over time with the
+          descriptions of fixes. In order to follow this example, you will need to have a look at the following
+          resources all across this journal.
+        </p>
+        
         <h2>Official websites</h2>
         <p>
           In order to start a brand new code generation project with Acceleo, you first to be sure that
@@ -190,14 +202,15 @@
         
         <h2>Naming conventions and Structure of the project.</h2>
         <p>
-          I recommend that an Acceleo project should be named following the given convention:
-          <code>&lt;domain&gt;.&lt;input-metamodel&gt;.gen.&lt;output-language&gt;</code>
           For this project, I will use the following name: "org.obeonetwork.pim.ecore.gen.scala" since
           my input models will use the metamodel "Ecore" from EMF to generate "Scala" source code. I
           like to use the prefix "pim" to indicate a "platform independent model". By default, Acceleo
           will use the name of the project as its root package, the sub-packages will be named by using
           the naming convention from the best practices guide.
         </p>
+        <div class="alert alert-info">
+          <strong>Tips and tricks:</strong> naming conventions 
+        </div>
         <p>
           With Acceleo, one of the first advice given to newcomers is to consider one Acceleo module for
           each kind of file that will be generated. For the Scala language, we will generate three kind
@@ -240,13 +253,21 @@
               the type module will handle all the types during the generation for example, if our model has an attribute with a
               "0..*" cardinality with possible duplicates and no specific order, this module will determine if we should generate
               an array of a list (this is one of the place where we will let the user influence the generation). After all those
-              steps, we should have a structure matching the screenshot on the right.
+              steps, we should have a structure matching the screenshot on the right. After having created those modules, I quickly
+              realized that I had make a mistake since the module "import.mtl" uses a reserved keyword of Acceleo as a name. So I
+              changed it to "imports.mtl".
             </p>
+            <div class="alert alert-info">
+              <strong>Tips and tricks:</strong> reserved keywords in Acceleo and OCL
+            </div>
             <p>
               After that, I proceed to externalize the variable of the MANIFEST.MF (the name of the plugin and the name of the
               provider). I will add the "about.html" for the copyright of the plugin once deployed in Eclipse and add the
               copyright on each modules.
             </p>
+            <div class="alert alert-info">
+              <strong>Tips and tricks:</strong> internalization of the generator
+            </div>
           </div>
           <div class="span3">
             <ul class="thumbnails">
@@ -260,67 +281,161 @@
         </div>
       </section>
       
-      <section id="files-generation">
+      <section id="files">
         <div class="page-header">
-          <h1>Files generation <small>The organization of the modules generating files.</small></h1>
+          <h1>Files <small>The organization of the modules generating files.</small></h1>
         </div>
         
-        <h2>The "traitScalaFile" example.</h2>
+        <h2>The "classScalaFile" example.</h2>
         <p>
           The modules generating the files are often the most complex since they need to call lots of other templates and queries
           and since their indentation will determine the indentation of the generated code. In order to view how this generator
-          structure the generation of the content, we will have a detailled look at the module "traitScalaFile".
+          structure the generation of the content, we will have a detailled look at the module "classScalaFile". I won't explain
+          everything since it would take a lot of time but I'll give some key informations for those who want to contribute to this
+          generator.
         </p>
         <p>
           First of all, the content of the file is generated by a template with the same name as the module (in camel case) preceded
           by "gen". I use the prefix "gen" for all my public templates and the prefix "req" for all my public queries. For the moment
-          all the templates and queries should be considered as private unless I say otherwise. Inside of this "genTraitScalaFile"
-          template there is the file block with its path computed by a private module named "traitScalaFilePath". I use the naming
-          convention of the best practices guide to name my variables. I also won't use the implicit context in this generator to
-          prevent confusions.
+          all the templates and queries should be considered as private unless I say otherwise. This way I can minimize the amount of
+          "API" that my generator provides, letting the other developers override only the part that I've chosen. Inside of this
+          "genClassScalaFile" template there is the file block with its path computed by a private module named "classScalaFilePath".
+          I use the naming convention of the best practices guide to name my variables. I also won't use the implicit context in this
+          generator to prevent confusions as described in the best practices guide.
         </p>
+        <p>
+          This "genClassScalaFile" template describes the structure of the generated files by starting with the header then the package
+          declaration, the imports, the documentation of the class and its body. All this text is generated by templates since templates
+          are the solution to generate the text. I use queries to generate text only in desperate cases mainly with Java services. In
+          this project, all the templates relatives to the documentation (copyrights, ScalaDoc, etc) are gathered in the "documentation.mtl"
+          module. Those templates are all public because I know before hand that when I'll have to write the module for the generation
+          of traits and objects, I will need to generate the documentation of those files. I'll get back later on the generation of the
+          documentation.
+        </p>
+        <div class="alert alert-info">
+          <strong>Tips and tricks:</strong> public templates & imported modules or protected templates & extended modules?
+        </div>
+        <p>
+          Using the same logic, I will use in this template the module "fileCommon.mtl" that will be for the moment dedicated to the
+          computation of paths and packages declaration. The import block is a very complicated piece of code to generate, as such it will
+          have its own module with a public template as the entry point of the generation of this block. Then, after the generation of the
+          ScalaDoc of the class, once again in the module "documentation.mtl", I start to handle the generation of the body of the template
+          starting with fields then constructors, methods and accessors by using privates templates for the generation of all of those pieces
+          of code.
+        </p>
+        <div class="alert alert-info">
+          <strong>Tips and tricks:</strong> using Acceleo to simplify OCL expressions
+        </div>
+        <p>
+          Each time that I have to generate something in relation with a type, for example in the generation of a Scala field :
+          <code>var myVariableName: MyVariableType</code>, then I make sure to call the module "type.mtl" instead of calling the template "name.mtl".
+          This type template will give an opportunity to the user to customize/override the value generated bu default by the generator.
+          We will see later on how to plug this behavior. I use the module "name.mtl" to store the template generating the name of the
+          variable for the fields and the parameters, the operations, etc. I also have few queries to embed some expressions that I intend to
+          use several times.
+        </p>
+        <div class="alert alert-info">
+          <strong>Tips and tricks:</strong> templates or queries, when to use each?
+        </div>
       </section>
       
-      <section id="naming-and-types">
+      <section id="name-and-types">
         <div class="page-header">
           <h1>Naming and types <small>How to let the user customize the generation.</small></h1>
         </div>
-        <h2>in progress</h2>
+        <h2>Customization for the end user</h2>
+        <p>
+          A good generator should let the end user customize easily the generated code. The end user of
+          this generator should not need any prior knowledge of Acceleo or any concept of code generation.
+          In order to do this, we will let the user manipulate a ".properties" file in which the user will
+          be able to change the default value used in the generator. In the mean time, the generator will
+          not generate the default values directly but it will use the values provided by the default ".properties"
+          files. Acceleo provides the necessary APIs to let the creator of the generator define where to look
+          for this ".properties" files. By default, Acceleo provides everything to look for ".properties" files
+          in the same folder as the input model, you can plug this in no time.  
+        </p>
+        <div class="alert alert-info">
+          <strong>Tips and tricks:</strong> use ".properties" files in Acceleo
+        </div>
+        
+        <h2>Overriding the behavior of the generator</h2>
+        <p>
+          Sometime, you may want to customize the behavior of the generator and specifing a new default value
+          may not be enough since you may need a context to compute the new default value. For those use cases
+          you can overwrite some parts of your generator with another generator.
+        </p>
+        <div class="alert alert-info">
+          <strong>Tips and tricks:</strong> overwrite an existing generator
+        </div>
       </section>
       
       <section id="documentation">
         <div class="page-header">
           <h1>Documentation <small>Management of the user code.</small></h1>
         </div>
-        <h2>in progress</h2>
+        <h2>How to generate a good documentation?</h2>
+        <h2>Protecting the generated code</h2>
       </section>
       
       <section id="launcher">
         <div class="page-header">
           <h1>Launcher <small>Configuration used to launch the generation.</small></h1>
         </div>
-        <h2>in progress</h2>
+        <h2>The Java launcher in details</h2>
+        <h2>How to solve common problems with the Java launcher</h2>
+      </section>
+      
+      <section id="test-debug">
+        <div class="page-header">
+          <h1>Test & Debug <small>get ready to handle any problems</small></h1>
+        </div>
+        <h2>Non regression tests</h2>
       </section>
       
       <section id="ui">
         <div class="page-header">
           <h1>UI <small>Building the user interface of the generator.</small></h1>
         </div>
-        <h2>in progress</h2>
+        <h2>Basic user interface in a few clicks</h2>
+        <h2>Advanced user interface and Acceleo APIs</h2>
       </section>
       
       <section id="build">
         <div class="page-header">
           <h1>Build <small>Maven, Ant or programmatically. Your call!</small></h1>
         </div>
-        <h2>in progress</h2>
+        <h2>Maven</h2>
+        <h2>Tycho</h2>
+        <h2>Stand alone</h2>
+        <h2>Ant</h2>
+        <h2>Programmatically</h2>
       </section>
       
       <section id="deployment">
         <div class="page-header">
           <h1>Deployment <small>Deliver the generator</small></h1>
         </div>
-        <h2>in progress</h2>
+        <h2>Delivering your generator in Eclipse</h2>
+        <h2>Out of Eclipse</h2>
+        <h2>Promoting your generator</h2>
+      </section>
+      
+      <section id="epilogue">
+        <div class="page-header">
+          <h1>Epilogue <small>Going a step further</small></h1>
+        </div>
+        <p>
+          If you want to go even further in the model driven approach for Scala development, you can find how to
+          build a dedicated graphical modeler. In this project, we will see how we can build several kind of diagrams
+          for Scala instead of using an UML modeler that comes with hundreds of useless concepts for a Scala developer
+          and that ignores the specific concepts of the Scala domain. After having build our domain specific modeler
+          we will see how we can build an Acceleo generator for our own domain with a new version of the Scala
+          generator.
+        </p>
+        <ul>
+          <li><strong>Building a graphical modeler for your own domain</strong> (coming later)</li>
+          <li><strong>Building a generator for your own domain</strong> (coming later)</li>
+        </ul>
       </section>
       
       <footer class="footer">
