@@ -1,12 +1,147 @@
 [comment encoding = UTF-8 /]
 [module classScalaFile('http://www.eclipse.org/emf/2002/GenModel', 'http://www.eclipse.org/emf/2002/Ecore')]
 
+[import org::obeonetwork::pim::ecore::gen::scala::common::documentation /]
+[import org::obeonetwork::pim::ecore::gen::scala::common::fileCommon /]
+[import org::obeonetwork::pim::ecore::gen::scala::common::imports /]
+[import org::obeonetwork::pim::ecore::gen::scala::common::name /]
+
 [template private classScalaFile(aGenClass : GenClass)]
+[aGenClass.genPackagePath()/]/[aGenClass.genTypeName()/].scala
+[/template]
+
+[template public genClassScalaFile(aGenClass : GenClass) ? (not aGenClass.ecoreClass.interface)]
+[file (aGenClass.classScalaFile(), false, 'UTF-8')]
+[aGenClass.genScaladocHeader()/]
+package [aGenClass.genPackage()/];
+
+[aGenClass.genImports()/]
+
+[aGenClass.genScalaDoc()/]
+[aGenClass.abstract()/]class [aGenClass.genTypeName()/][aGenClass.defaultConstructor()/][aGenClass.inheritance()/] {
+	[aGenClass.classBody()/]
+}
+[/file]
+[/template]
+
+[template public classBody(aGenClass : GenClass) post(trim())]
+[aGenClass.fields()/]
+[aGenClass.constructors()/]
+[aGenClass.methods()/]
+[aGenClass.accessors()/]
+[/template]
+
+[template private abstract(aGenClass : GenClass)]
+[if (aGenClass.ecoreClass.abstract)]abstract [/if]
+[/template]
+
+[template private defaultConstructor(aGenClass : GenClass)]
+ 
+[/template]
+
+[template private inheritance(aGenClass : GenClass) post(trim())]
+[if (aGenClass.ecoreClass.eSuperTypes->size() > 0)]
+[if (aGenClass.classSuperTypes()->size() > 0)]
+extends [aGenClass.classSuperTypes()->first().genTypeName()/][for (aTrait : EClass | aGenClass.traitSuperTypes())] with [aTrait.genTypeName()/][/for]
+[elseif(aGenClass.traitSuperTypes()->size() > 0)]
+extends [aGenClass.traitSuperTypes()->first().genTypeName()/][for (aTrait : EClass | aGenClass.traitSuperTypes()->excluding(aGenClass.traitSuperTypes()->first()))] with [aTrait.genTypeName()/][/for]
+[/if]
+[/if]
+[/template]
+
+[query private classSuperTypes(aGenClass : GenClass) : OrderedSet(EClass) =
+	aGenClass.ecoreClass.eSuperTypes->reject(anEClass : EClass | anEClass.interface)
+/]
+
+[query private traitSuperTypes(aGenClass : GenClass) : OrderedSet(EClass) =
+	aGenClass.ecoreClass.eSuperTypes->select(anEClass : EClass | anEClass.interface)
+/]
+
+[template private fields(aGenClass : GenClass)]
+[for (anEAttribute : EAttribute | aGenClass.ecoreClass.eAttributes)]
+[anEAttribute.genScalaDoc()/]
+[anEAttribute.visibility()/][anEAttribute.override()/]var [anEAttribute.genFieldName()/]: [anEAttribute.eType.genTypeName()/];
+
+[/for]
+[for (anEReference : EReference | aGenClass.ecoreClass.eReferences)]
+[anEReference.genScalaDoc()/]
+[anEReference.visibility()/][anEReference.override()/]var [anEReference.genFieldName()/]: [anEReference.eType.genTypeName()/];
+
+[/for]
+[/template]
+
+[template private visibility(anEAttribute : EAttribute)]
+private 
+[/template]
+
+[template private visibility(anEReference : EReference)]
+private 
+[/template]
+
+[template private override(anEAttribute : EAttribute)]
+[if (anEAttribute.eContainingClass.eSuperTypes.eAttributes->includes(anEAttribute))]override [/if]
+[/template]
+
+[template private override(anEReference : EReference)]
+[if (anEReference.eContainingClass.eSuperTypes.eAttributes->includes(anEReference))]override [/if]
+[/template]
+
+[template private constructors(aGenClass : GenClass)]
 
 [/template]
 
-[template public genClassScalaFile(aGenClass : GenClass)]
-[file (aGenClass.classScalaFile(), false, 'UTF-8')]
+[template private methods(aGenClass : GenClass)]
+[for (anEOperation : EOperation | aGenClass.ecoreClass.classOperations())]
+[anEOperation.genScalaDoc()/]
+[anEOperation.visibility()/][anEOperation.override()/][anEOperation.genOperationName()/]([anEOperation.parameters()/])[anEOperation.returnType()/] = {
+	[anEOperation.defaultBody()/]
+}
+[/for]
+[/template]
 
-[/file]
+[template private visibility(anEOperation : EOperation)]
+public 
+[/template]
+
+[template private override(anEOperation : EOperation)]
+[if (anEOperation.eContainingClass.eSuperTypes.eOperations->includes(anEOperation))]override [/if]
+[/template]
+
+[template private parameters(anEOperation : EOperation)]
+[for (anEParameter : EParameter | anEOperation.eParameters) separator(', ')][anEParameter.genParameterName()/]: [anEParameter.eType.genTypeName()/][/for]
+[/template]
+
+[template private returnType(anEOperation : EOperation) post(trim())]
+[if (anEOperation.eType.oclIsUndefined())]
+[else]
+: [anEOperation.eType.genTypeName()/]
+[/if]
+[/template]
+
+[template private defaultBody(anEOperation : EOperation)]
+[if (not anEOperation.eType.oclIsUndefined())]
+return null;
+[/if]
+[/template]
+
+[query private classOperations(anEClass : EClass) : OrderedSet(EOperation) =
+	anEClass.eOperations
+/]
+
+[template private accessors(aGenClass : GenClass)]
+[for (anEAttribute : EAttribute | aGenClass.ecoreClass.eAttributes)]
+[anEAttribute.genGetterScalaDoc()/]
+def get[anEAttribute.genFieldName().toUpperFirst()/](): [anEAttribute.eType.genTypeName()/] {
+	return this.[anEAttribute.genFieldName()/];
+}
+
+[anEAttribute.genSetterScalaDoc()/]
+def set[anEAttribute.genFieldName().toUpperFirst()/](new[anEAttribute.genFieldName()/]: [anEAttribute.eType.genTypeName()/]) {
+	this.[anEAttribute.genFieldName()/] = new[anEAttribute.genFieldName()/];
+}
+
+[/for]
+[for (anEReference : EReference | aGenClass.ecoreClass.eReferences)]
+
+[/for]
 [/template]

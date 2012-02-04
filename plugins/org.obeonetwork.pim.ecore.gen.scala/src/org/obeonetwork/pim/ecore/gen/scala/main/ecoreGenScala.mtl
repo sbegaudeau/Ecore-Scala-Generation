@@ -1,6 +1,14 @@
 [comment encoding = UTF-8 /]
 [module ecoreGenScala('http://www.eclipse.org/emf/2002/GenModel', 'http://www.eclipse.org/emf/2002/Ecore')]
 
+[import org::obeonetwork::pim::ecore::gen::scala::main::files::classScalaFile /]
+[import org::obeonetwork::pim::ecore::gen::scala::main::files::objectScalaFile /]
+[import org::obeonetwork::pim::ecore::gen::scala::main::files::traitScalaFile /]
+
 [template public main(aGenModel : GenModel)]
 [comment @main/]
+
+[for (aGenClass : GenClass | aGenModel.genPackages.genClasses)]
+[aGenClass.genClassScalaFile()/]
+[/for]
 [/template]

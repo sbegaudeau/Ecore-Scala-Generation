@@ -2,5 +2,13 @@
 [module fileCommon('http://www.eclipse.org/emf/2002/GenModel', 'http://www.eclipse.org/emf/2002/Ecore')]
 
 [template public genPackage(aGenClass : GenClass)]
+[aGenClass.genPackage.basePackage/]
+[/template]
 
+[template public genPackagePath(aGenClass : GenClass)]
+[aGenClass.rootFolder()/]/[aGenClass.genPackage().substituteAll('.', '/')/]
+[/template]
+
+[template private rootFolder(aGenClass : GenClass)]
+[aGenClass.genPackage.genModel.modelDirectory/]
 [/template]

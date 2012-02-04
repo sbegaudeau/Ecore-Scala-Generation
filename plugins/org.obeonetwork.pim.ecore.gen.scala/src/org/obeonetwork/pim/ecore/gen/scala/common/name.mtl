@@ -1,6 +1,38 @@
 [comment encoding = UTF-8 /]
 [module name('http://www.eclipse.org/emf/2002/GenModel', 'http://www.eclipse.org/emf/2002/Ecore')]
 
-[template public genName(aGenClass : GenClass)]
+[template public genTypeName(aGenClass : GenClass)]
+[aGenClass.ecoreClass.genTypeName()/]
+[/template]
 
+[template public genTypeName(anEClass : EClass)]
+[anEClass.name.toUpperFirst()/]
+[/template]
+
+[template public genTypeName(anEClassifier : EClassifier)]
+[anEClassifier.name.toUpperFirst()/]
+[/template]
+
+[template public genQualifiedTypeName(aGenClass : GenClass)]
+[aGenClass.ecoreClass.genQualifiedTypeName()/]
+[/template]
+
+[template public genQualifiedTypeName(anEClass : EClass)]
+
+[/template]
+
+[template public genFieldName(anEAttribute : EAttribute)]
+[anEAttribute.name.toLowerFirst()/]
+[/template]
+
+[template public genOperationName(anEOperation : EOperation)]
+[anEOperation.name.toLowerFirst()/]
+[/template]
+
+[template public genParameterName(anEParameter : EParameter)]
+[anEParameter.name.toLowerFirst()/]
+[/template]
+
+[template public genFieldName(anEReference : EReference)]
+[anEReference.name.toLowerFirst()/]
 [/template]
