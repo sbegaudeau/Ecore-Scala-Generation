@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/org.obeonetwork.pim.ecore.gen.scala.feature_1.0.0.qualifier.jar" id="org.obeonetwork.pim.ecore.gen.scala.feature" version="1.0.0.qualifier"/>
+   <feature url="features/org.obeonetwork.pim.ecore.gen.scala.ui.feature_1.0.0.qualifier.jar" id="org.obeonetwork.pim.ecore.gen.scala.ui.feature" version="1.0.0.qualifier"/>
+</site>
