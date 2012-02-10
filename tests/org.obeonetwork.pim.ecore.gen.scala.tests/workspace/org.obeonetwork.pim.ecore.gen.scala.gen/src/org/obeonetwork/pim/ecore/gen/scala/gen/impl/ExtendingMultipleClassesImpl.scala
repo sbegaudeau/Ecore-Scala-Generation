@@ -14,13 +14,11 @@ package org.obeonetwork.pim.ecore.gen.scala.gen;
 // End of user code
 
 /**
- * <!-- Start of user code A representation of the model object ExtendingMultipleClasses -->
+ * <!-- Start of user code An implementation of the model object ExtendingMultipleClasses -->
  * ScalaDoc of ExtendingMultipleClasses.
  * 
- * @see Package
- * @model
  * <!-- End of user code -->
  */
-trait ExtendingMultipleClasses {
+class ExtendingMultipleClassesImpl extends ExtendedClass {
 	
 }

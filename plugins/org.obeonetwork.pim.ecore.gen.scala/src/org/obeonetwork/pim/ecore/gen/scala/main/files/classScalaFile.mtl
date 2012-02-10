@@ -5,26 +5,27 @@
 [import org::obeonetwork::pim::ecore::gen::scala::common::fileCommon /]
 [import org::obeonetwork::pim::ecore::gen::scala::common::imports /]
 [import org::obeonetwork::pim::ecore::gen::scala::common::name /]
+[import org::obeonetwork::pim::ecore::gen::scala::common::type /]
 
-[template private classScalaFile(aGenClass : GenClass)]
-[aGenClass.genPackagePath()/]/[aGenClass.genTypeName()/].scala
+[template private classScalaFilePath(aGenClass : GenClass) post(trim())]
+[aGenClass.genPackagePath()/]/[if(aGenClass.genPackage.classPackageSuffix.size() > 0)][aGenClass.genPackage.classPackageSuffix/]/[/if][aGenClass.genImplementationTypeName()/].scala
 [/template]
 
-[template public genClassScalaFile(aGenClass : GenClass) ? (not aGenClass.ecoreClass.interface)]
-[file (aGenClass.classScalaFile(), false, 'UTF-8')]
+[template public genClassScalaFile(aGenClass : GenClass)]
+[file (aGenClass.classScalaFilePath(), false, 'UTF-8')]
 [aGenClass.genScaladocHeader()/]
 package [aGenClass.genPackage()/];
 
 [aGenClass.genImports()/]
 
-[aGenClass.genScalaDoc()/]
-[aGenClass.abstract()/]class [aGenClass.genTypeName()/][aGenClass.defaultConstructor()/][aGenClass.inheritance()/] {
+[aGenClass.genImplementationScalaDoc()/]
+[aGenClass.abstract()/]class [aGenClass.genImplementationTypeName()/][aGenClass.classSignature()/] {
 	[aGenClass.classBody()/]
 }
 [/file]
 [/template]
 
-[template public classBody(aGenClass : GenClass) post(trim())]
+[template private classBody(aGenClass : GenClass) post(trim())]
 [aGenClass.fields()/]
 [aGenClass.constructors()/]
 [aGenClass.methods()/]
@@ -33,6 +34,10 @@ package [aGenClass.genPackage()/];
 
 [template private abstract(aGenClass : GenClass)]
 [if (aGenClass.ecoreClass.abstract)]abstract [/if]
+[/template]
+
+[template private classSignature(aGenClass : GenClass)]
+[let signature : String = aGenClass.defaultConstructor() + aGenClass.inheritance()][if (signature.trim().size() > 0)][signature/][/if][/let]
 [/template]
 
 [template private defaultConstructor(aGenClass : GenClass)]
@@ -58,41 +63,40 @@ extends [aGenClass.traitSuperTypes()->first().genTypeName()/][for (aTrait : ECla
 /]
 
 [template private fields(aGenClass : GenClass)]
-[for (anEAttribute : EAttribute | aGenClass.ecoreClass.eAttributes)]
-[anEAttribute.genScalaDoc()/]
-[anEAttribute.visibility()/][anEAttribute.override()/]var [anEAttribute.genFieldName()/]: [anEAttribute.eType.genTypeName()/];
+[for (anEAttribute : EAttribute | aGenClass.ecoreClass.eAttributes->reject(anEAttr: EAttribute | anEAttr.volatile))]
+[anEAttribute.genImplementationScalaDoc()/]
+[anEAttribute.visibility()/][anEAttribute.override()/]var [anEAttribute.genFieldName()/]: [anEAttribute.genTypeName()/];
 
 [/for]
-[for (anEReference : EReference | aGenClass.ecoreClass.eReferences)]
-[anEReference.genScalaDoc()/]
-[anEReference.visibility()/][anEReference.override()/]var [anEReference.genFieldName()/]: [anEReference.eType.genTypeName()/];
+[for (anEReference : EReference | aGenClass.ecoreClass.eReferences->reject(anERef: EReference | anERef.volatile))]
+[anEReference.genImplementationScalaDoc()/]
+[anEReference.visibility()/][anEReference.override()/]var [anEReference.genFieldName()/]: [anEReference.genTypeName()/];
 
 [/for]
 [/template]
 
 [template private visibility(anEAttribute : EAttribute)]
-private 
+private['['/]this[']'/] 
 [/template]
 
 [template private visibility(anEReference : EReference)]
-private 
+private['['/]this[']'/] 
 [/template]
 
-[template private override(anEAttribute : EAttribute)]
-[if (anEAttribute.eContainingClass.eSuperTypes.eAttributes->includes(anEAttribute))]override [/if]
+[template private override(anEStructuralFeature : EStructuralFeature)]
+[if (anEStructuralFeature.superTypeStructuralFeatureOverridden()->size() > 0)]override [/if]
 [/template]
 
-[template private override(anEReference : EReference)]
-[if (anEReference.eContainingClass.eSuperTypes.eAttributes->includes(anEReference))]override [/if]
-[/template]
+[query private superTypeStructuralFeatureOverridden(anEStructuralFeature : EStructuralFeature) : Sequence(EStructuralFeature) = 
+	anEStructuralFeature.eContainingClass.eSuperTypes.eStructuralFeatures->select(feat : EStructuralFeature | (feat.name = anEStructuralFeature.name) and (feat.genTypeName() = anEStructuralFeature.genTypeName()))
+/]
 
 [template private constructors(aGenClass : GenClass)]
-
 [/template]
 
 [template private methods(aGenClass : GenClass)]
 [for (anEOperation : EOperation | aGenClass.ecoreClass.classOperations())]
-[anEOperation.genScalaDoc()/]
+[anEOperation.genImplementationScalaDoc()/]
 [anEOperation.visibility()/][anEOperation.override()/][anEOperation.genOperationName()/]([anEOperation.parameters()/])[anEOperation.returnType()/] = {
 	[anEOperation.defaultBody()/]
 }
@@ -100,7 +104,6 @@ private
 [/template]
 
 [template private visibility(anEOperation : EOperation)]
-public 
 [/template]
 
 [template private override(anEOperation : EOperation)]
@@ -108,13 +111,13 @@ public
 [/template]
 
 [template private parameters(anEOperation : EOperation)]
-[for (anEParameter : EParameter | anEOperation.eParameters) separator(', ')][anEParameter.genParameterName()/]: [anEParameter.eType.genTypeName()/][/for]
+[for (anEParameter : EParameter | anEOperation.eParameters) separator(', ')][anEParameter.genParameterName()/]: [anEParameter.genTypeName()/][/for]
 [/template]
 
 [template private returnType(anEOperation : EOperation) post(trim())]
 [if (anEOperation.eType.oclIsUndefined())]
 [else]
-: [anEOperation.eType.genTypeName()/]
+: [anEOperation.genTypeName()/]
 [/if]
 [/template]
 
@@ -130,18 +133,31 @@ return null;
 
 [template private accessors(aGenClass : GenClass)]
 [for (anEAttribute : EAttribute | aGenClass.ecoreClass.eAttributes)]
-[anEAttribute.genGetterScalaDoc()/]
-def get[anEAttribute.genFieldName().toUpperFirst()/](): [anEAttribute.eType.genTypeName()/] {
+[anEAttribute.genImplementationGetterScalaDoc()/]
+def [anEAttribute.genAccessorName()/](): [anEAttribute.genTypeName()/] {
 	return this.[anEAttribute.genFieldName()/];
 }
+[if (not anEAttribute.unsettable)]
 
-[anEAttribute.genSetterScalaDoc()/]
-def set[anEAttribute.genFieldName().toUpperFirst()/](new[anEAttribute.genFieldName()/]: [anEAttribute.eType.genTypeName()/]) {
-	this.[anEAttribute.genFieldName()/] = new[anEAttribute.genFieldName()/];
+[anEAttribute.genImplementationSetterScalaDoc()/]
+def [anEAttribute.genMutatorName()/]([anEAttribute.genSetterPrefix()/][anEAttribute.genFieldName()/]: [anEAttribute.genTypeName()/]) {
+	this.[anEAttribute.genFieldName()/] = [anEAttribute.genSetterPrefix()/][anEAttribute.genFieldName()/];
 }
 
+[/if]
 [/for]
 [for (anEReference : EReference | aGenClass.ecoreClass.eReferences)]
+[anEReference.genImplementationGetterScalaDoc()/]
+def [anEReference.genAccessorName()/](): [anEReference.genTypeName()/] {
+	return this.[anEReference.genFieldName()/];
+}
+[if (not anEReference.unsettable)]
 
+[anEReference.genImplementationSetterScalaDoc()/]
+def [anEReference.genMutatorName()/]([anEReference.genSetterPrefix()/][anEReference.genFieldName()/]: [anEReference.genTypeName()/]) {
+	this.[anEReference.genFieldName()/] = [anEReference.genSetterPrefix()/][anEReference.genFieldName()/];
+}
+
+[/if]
 [/for]
 [/template]

@@ -1,0 +1,18 @@
+[comment encoding = UTF-8 /]
+[module factoryClassScalaFile('http://www.eclipse.org/emf/2002/GenModel', 'http://www.eclipse.org/emf/2002/Ecore')]
+
+[import org::obeonetwork::pim::ecore::gen::scala::common::documentation /]
+[import org::obeonetwork::pim::ecore::gen::scala::common::fileCommon /]
+[import org::obeonetwork::pim::ecore::gen::scala::common::imports /]
+[import org::obeonetwork::pim::ecore::gen::scala::common::name /]
+[import org::obeonetwork::pim::ecore::gen::scala::common::type /]
+
+[template private factoryClassScalaFilePath(aGenPackage : GenPackage)]
+[aGenPackage.genPackagePath()/]/[if(aGenPackage.classPackageSuffix.size() > 0)][aGenPackage.classPackageSuffix/]/[/if][if(aGenPackage.metaDataPackageSuffix.size() > 0)][aGenPackage.metaDataPackageSuffix/]/[/if][aGenPackage.genImplementationFactoryTypeName()/].scala
+[/template]
+
+[template public genFactoryClassScalaFile(aGenPackage : GenPackage)]
+[file (aGenPackage.factoryClassScalaFilePath(), false, 'UTF-8')]
+
+[/file]
+[/template]

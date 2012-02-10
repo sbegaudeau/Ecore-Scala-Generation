@@ -12,3 +12,11 @@
 [template private rootFolder(aGenClass : GenClass)]
 [aGenClass.genPackage.genModel.modelDirectory/]
 [/template]
+
+[template public genPackagePath(aGenPackage : GenPackage)]
+[aGenPackage.rootFolder()/]/[aGenPackage.basePackage.substituteAll('.', '/')/]
+[/template]
+
+[template private rootFolder(aGenPackage : GenPackage)]
+[aGenPackage.genModel.modelDirectory/]
+[/template]

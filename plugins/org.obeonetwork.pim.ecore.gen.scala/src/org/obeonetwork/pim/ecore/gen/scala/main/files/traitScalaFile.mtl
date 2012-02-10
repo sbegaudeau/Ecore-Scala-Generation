@@ -1,12 +1,91 @@
 [comment encoding = UTF-8 /]
 [module traitScalaFile('http://www.eclipse.org/emf/2002/GenModel', 'http://www.eclipse.org/emf/2002/Ecore')]
 
-[template private traitScalaFile(aGenClass : GenClass)]
+[import org::obeonetwork::pim::ecore::gen::scala::common::documentation /]
+[import org::obeonetwork::pim::ecore::gen::scala::common::fileCommon /]
+[import org::obeonetwork::pim::ecore::gen::scala::common::imports /]
+[import org::obeonetwork::pim::ecore::gen::scala::common::name /]
+[import org::obeonetwork::pim::ecore::gen::scala::common::type /]
 
+[template private traitScalaFilePath(aGenClass : GenClass)]
+[aGenClass.genPackagePath()/]/[if(aGenClass.genPackage.interfacePackageSuffix.size() > 0)][aGenClass.genPackage.interfacePackageSuffix/]/[/if][aGenClass.genTypeName()/].scala
 [/template]
 
 [template public genTraitScalaFile(aGenClass : GenClass)]
-[file (aGenClass.traitScalaFile(), false, 'UTF-8')]
+[file (aGenClass.traitScalaFilePath(), false, 'UTF-8')]
+[aGenClass.genScaladocHeader()/]
+package [aGenClass.genPackage()/];
 
+[aGenClass.genImports()/]
+
+[aGenClass.genTraitScalaDoc()/]
+trait [aGenClass.genTypeName()/] {
+	[aGenClass.traitBody()/]
+}
 [/file]
+[/template]
+
+[template private traitBody(aGenClass : GenClass) post(trim())]
+[aGenClass.methods()/]
+[aGenClass.accessors()/]
+[/template]
+
+[template private methods(aGenClass : GenClass)]
+[for (anEOperation : EOperation | aGenClass.ecoreClass.classOperations())]
+[anEOperation.genTraitScalaDoc()/]
+[anEOperation.visibility()/][anEOperation.override()/][anEOperation.genOperationName()/]([anEOperation.parameters()/])[anEOperation.returnType()/] = {
+	[anEOperation.defaultBody()/]
+}
+[/for]
+[/template]
+
+[template private visibility(anEOperation : EOperation)]
+[/template]
+
+[template private override(anEOperation : EOperation)]
+[if (anEOperation.eContainingClass.eSuperTypes.eOperations->includes(anEOperation))]override [/if]
+[/template]
+
+[template private parameters(anEOperation : EOperation)]
+[for (anEParameter : EParameter | anEOperation.eParameters) separator(', ')][anEParameter.genParameterName()/]: [anEParameter.genTypeName()/][/for]
+[/template]
+
+[template private returnType(anEOperation : EOperation) post(trim())]
+[if (anEOperation.eType.oclIsUndefined())]
+[else]
+: [anEOperation.genTypeName()/]
+[/if]
+[/template]
+
+[template private defaultBody(anEOperation : EOperation)]
+[if (not anEOperation.eType.oclIsUndefined())]
+return null;
+[/if]
+[/template]
+
+[query private classOperations(anEClass : EClass) : OrderedSet(EOperation) =
+	anEClass.eOperations
+/]
+
+[template private accessors(aGenClass : GenClass)]
+[for (anEAttribute : EAttribute | aGenClass.ecoreClass.eAttributes)]
+[anEAttribute.genTraitGetterScalaDoc()/]
+def [anEAttribute.genAccessorName()/](): [anEAttribute.genTypeName()/]
+[if (not anEAttribute.unsettable)]
+
+[anEAttribute.genTraitSetterScalaDoc()/]
+def [anEAttribute.genMutatorName()/]([anEAttribute.genSetterPrefix()/][anEAttribute.genFieldName()/]: [anEAttribute.genTypeName()/])
+
+[/if]
+[/for]
+[for (anEReference : EReference | aGenClass.ecoreClass.eReferences)]
+[anEReference.genTraitGetterScalaDoc()/]
+def [anEReference.genAccessorName()/](): [anEReference.genTypeName()/]
+[if (not anEReference.unsettable)]
+
+[anEReference.genTraitSetterScalaDoc()/]
+def [anEReference.genMutatorName()/]([anEReference.genSetterPrefix()/][anEReference.genFieldName()/]: [anEReference.genTypeName()/])
+
+[/if]
+[/for]
 [/template]

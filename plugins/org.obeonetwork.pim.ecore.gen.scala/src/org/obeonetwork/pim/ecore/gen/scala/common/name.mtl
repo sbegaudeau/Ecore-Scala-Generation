@@ -1,18 +1,6 @@
 [comment encoding = UTF-8 /]
 [module name('http://www.eclipse.org/emf/2002/GenModel', 'http://www.eclipse.org/emf/2002/Ecore')]
 
-[template public genTypeName(aGenClass : GenClass)]
-[aGenClass.ecoreClass.genTypeName()/]
-[/template]
-
-[template public genTypeName(anEClass : EClass)]
-[anEClass.name.toUpperFirst()/]
-[/template]
-
-[template public genTypeName(anEClassifier : EClassifier)]
-[anEClassifier.name.toUpperFirst()/]
-[/template]
-
 [template public genQualifiedTypeName(aGenClass : GenClass)]
 [aGenClass.ecoreClass.genQualifiedTypeName()/]
 [/template]
@@ -21,8 +9,8 @@
 
 [/template]
 
-[template public genFieldName(anEAttribute : EAttribute)]
-[anEAttribute.name.toLowerFirst()/]
+[template public genFieldName(anEStructuralFeature : EStructuralFeature)]
+[anEStructuralFeature.name.toLowerFirst()/]
 [/template]
 
 [template public genOperationName(anEOperation : EOperation)]
@@ -33,6 +21,14 @@
 [anEParameter.name.toLowerFirst()/]
 [/template]
 
-[template public genFieldName(anEReference : EReference)]
-[anEReference.name.toLowerFirst()/]
+[template public genSetterPrefix(oclAny : OclAny)]
+new
+[/template]
+
+[template public genAccessorName(anEStructuralFeature : EStructuralFeature)]
+[anEStructuralFeature.name.toLowerFirst().toLowerFirst()/]
+[/template]
+
+[template public genMutatorName(anEStructuralFeature : EStructuralFeature)]
+set[anEStructuralFeature.name.toLowerFirst().toUpperFirst()/]
 [/template]

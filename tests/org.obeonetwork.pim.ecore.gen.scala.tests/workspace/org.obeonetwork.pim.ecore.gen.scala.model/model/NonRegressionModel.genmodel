@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <genmodel:GenModel xmi:version="2.0"
-    xmlns:xmi="http://www.omg.org/XMI" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" copyrightText="Copyright (c) 2012 Obeo.&#xD;&#xA;All rights reserved. This program and the accompanying materials&#xD;&#xA;are made available under the terms of the Eclipse Public License v1.0&#xD;&#xA;which accompanies this distribution, and is available at&#xD;&#xA;http://www.eclipse.org/legal/epl-v10.html&#xD;&#xA;&#xD;&#xA;Contributors:&#xD;&#xA;    Stephane Begaudeau (Obeo) - initial API and implementation"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" copyrightText="Copyright (c) 2012 Obeo.&#xD;&#xA;All rights reserved. This program and the accompanying materials&#xD;&#xA;are made available under the terms of the Eclipse Public License v1.0&#xD;&#xA;which accompanies this distribution, and is available at&#xD;&#xA;http://www.eclipse.org/legal/epl-v10.html&#xD;&#xA;&#xD;&#xA;Contributors:&#xD;&#xA;    Stephane Begaudeau (Obeo) - initial API and implementation"
     modelDirectory="/org.obeonetwork.pim.ecore.gen.scala.gen/src" modelPluginID="org.obeonetwork.pim.ecore.gen.scala.gen"
     modelName="NonRegressionModel" modelPluginClass="" importerID="org.eclipse.emf.importer.ecore"
     bundleManifest="false" complianceLevel="6.0" copyrightFields="false" language="">
@@ -15,5 +16,63 @@
     <genClasses image="false" ecoreClass="NonRegressionModel.ecore#//AbstractInterfaceClass"/>
     <genClasses ecoreClass="NonRegressionModel.ecore#//InstanceTypeNameClass"/>
     <genClasses ecoreClass="NonRegressionModel.ecore#//InstanceTypeQualifiedNameClass"/>
+    <genClasses ecoreClass="NonRegressionModel.ecore#//DocumentedClass"/>
+    <genClasses ecoreClass="NonRegressionModel.ecore#//AttributesClass">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute NonRegressionModel.ecore#//AttributesClass/firstAttribute"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute NonRegressionModel.ecore#//AttributesClass/secondAttribute"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute NonRegressionModel.ecore#//AttributesClass/thirdAttribute"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute NonRegressionModel.ecore#//AttributesClass/fourthAttribute"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute NonRegressionModel.ecore#//AttributesClass/fifthAttribute"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute NonRegressionModel.ecore#//AttributesClass/sixthAttribute"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute NonRegressionModel.ecore#//AttributesClass/seventhAttribute"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute NonRegressionModel.ecore#//AttributesClass/eighthAttribute"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute NonRegressionModel.ecore#//AttributesClass/ninthAttribute"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute NonRegressionModel.ecore#//AttributesClass/tenthAttribute"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute NonRegressionModel.ecore#//AttributesClass/eleventhAttribute"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute NonRegressionModel.ecore#//AttributesClass/twelfthAttribute"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute NonRegressionModel.ecore#//AttributesClass/thirteenthAttribute"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute NonRegressionModel.ecore#//AttributesClass/fourteenthAttribute"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute NonRegressionModel.ecore#//AttributesClass/fifteenthAttribute"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute NonRegressionModel.ecore#//AttributesClass/sixteenthAttribute"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute NonRegressionModel.ecore#//AttributesClass/seventeenthAttribute"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute NonRegressionModel.ecore#//AttributesClass/eighteenthAttribute"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute NonRegressionModel.ecore#//AttributesClass/nineteenthAttribute"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute NonRegressionModel.ecore#//AttributesClass/twentiethAttribute"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute NonRegressionModel.ecore#//AttributesClass/twentyFirstAttribute"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute NonRegressionModel.ecore#//AttributesClass/twentySecondAttribute"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute NonRegressionModel.ecore#//AttributesClass/twentyThirdAttribute"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute NonRegressionModel.ecore#//AttributesClass/twentyFourthAttribute"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute NonRegressionModel.ecore#//AttributesClass/twentyFifthAttribute"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute NonRegressionModel.ecore#//AttributesClass/twentySixthAttribute"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute NonRegressionModel.ecore#//AttributesClass/twentySeventhAttribute"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute NonRegressionModel.ecore#//AttributesClass/twentyEighthAttribute"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute NonRegressionModel.ecore#//AttributesClass/twentyNinthAttribute"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute NonRegressionModel.ecore#//AttributesClass/thirtiethAttribute"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute NonRegressionModel.ecore#//AttributesClass/thirtyFirstAttribute"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute NonRegressionModel.ecore#//AttributesClass/thirtySecondAttribute"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute NonRegressionModel.ecore#//AttributesClass/thirtyThirdAttribute"/>
+    </genClasses>
+    <genClasses ecoreClass="NonRegressionModel.ecore#//DocumentedAttributesClass">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute NonRegressionModel.ecore#//DocumentedAttributesClass/firstAttribute"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute NonRegressionModel.ecore#//DocumentedAttributesClass/secondAttribute"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute NonRegressionModel.ecore#//DocumentedAttributesClass/thirdAttribute"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute NonRegressionModel.ecore#//DocumentedAttributesClass/fourthAttribute"/>
+    </genClasses>
+    <genClasses ecoreClass="NonRegressionModel.ecore#//CardinalityAttributesClass">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute NonRegressionModel.ecore#//CardinalityAttributesClass/firstAttribute"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute NonRegressionModel.ecore#//CardinalityAttributesClass/secondAttribute"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute NonRegressionModel.ecore#//CardinalityAttributesClass/thirdAttribute"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute NonRegressionModel.ecore#//CardinalityAttributesClass/fourthAttribute"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute NonRegressionModel.ecore#//CardinalityAttributesClass/fifthAttribute"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute NonRegressionModel.ecore#//CardinalityAttributesClass/sixthAttribute"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute NonRegressionModel.ecore#//CardinalityAttributesClass/seventhAttribute"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute NonRegressionModel.ecore#//CardinalityAttributesClass/eighthAttribute"/>
+    </genClasses>
+    <genClasses ecoreClass="NonRegressionModel.ecore#//UnsettableAttributesClass">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute NonRegressionModel.ecore#//UnsettableAttributesClass/firstAttribute"/>
+    </genClasses>
+    <genClasses ecoreClass="NonRegressionModel.ecore#//VolatileAttributesClass">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute NonRegressionModel.ecore#//VolatileAttributesClass/firstAttribute"/>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>

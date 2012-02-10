@@ -2,13 +2,21 @@
 [module ecoreGenScala('http://www.eclipse.org/emf/2002/GenModel', 'http://www.eclipse.org/emf/2002/Ecore')]
 
 [import org::obeonetwork::pim::ecore::gen::scala::main::files::classScalaFile /]
+[import org::obeonetwork::pim::ecore::gen::scala::main::files::factoryClassScalaFile /]
+[import org::obeonetwork::pim::ecore::gen::scala::main::files::factoryTraitScalaFile /]
 [import org::obeonetwork::pim::ecore::gen::scala::main::files::objectScalaFile /]
 [import org::obeonetwork::pim::ecore::gen::scala::main::files::traitScalaFile /]
 
 [template public main(aGenModel : GenModel)]
 [comment @main/]
 
+[aGenModel.genPackages.genFactoryClassScalaFile()/]
+[aGenModel.genPackages.genFactoryTraitScalaFile()/]
+
 [for (aGenClass : GenClass | aGenModel.genPackages.genClasses)]
+[if (not aGenClass.ecoreClass.interface)]
 [aGenClass.genClassScalaFile()/]
+[/if]
+[aGenClass.genTraitScalaFile()/]
 [/for]
 [/template]
