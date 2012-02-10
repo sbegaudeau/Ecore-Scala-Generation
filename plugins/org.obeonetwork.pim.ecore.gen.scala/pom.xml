@@ -26,6 +26,30 @@
 
   <name>Acceleo Ecore to Scala Generator</name>
   
+  <dependencies>
+    <dependency>
+      <groupId>org.eclipse.acceleo</groupId>
+      <artifactId>maven</artifactId>
+      <version>3.2.1-SNAPSHOT</version>
+    </dependency>
+    <dependency>
+    	<groupId>org.eclipse.emf</groupId>
+    	<artifactId>codegen.ecore</artifactId>
+    	<version>2.7.0</version>
+    </dependency>
+  </dependencies>
+  
+  <repositories>
+    <repository>
+      <id>github snapshot</id>
+      <url>https://github.com/sbegaudeau/maven-repository/raw/master/snapshots</url>
+    </repository>
+    <repository>
+      <id>github release</id>
+      <url>https://github.com/sbegaudeau/maven-repository/raw/master/releases</url>
+    </repository>
+  </repositories>
+  
   <build>
     <resources>
       <resource>
@@ -40,6 +64,32 @@
         <groupId>org.eclipse.tycho</groupId>
         <artifactId>tycho-source-plugin</artifactId>
       </plugin>
+      <plugin>
+       <groupId>org.eclipse.acceleo</groupId>
+       <artifactId>maven</artifactId>
+       <version>3.2.1-SNAPSHOT</version>
+       <executions>
+          <execution>
+            <phase>compile</phase>
+          </execution>
+        </executions>
+        <configuration>
+          <useBinaryResources>false</useBinaryResources>
+          <acceleoProject>
+            <root>${project.basedir}</root>
+            <entries>
+              <entry>
+                <input>src/</input>
+                <output>target/classes</output>
+              </entry>
+            </entries>
+          </acceleoProject>
+          <packagesToRegister>
+            <packageToRegister>org.eclipse.emf.codegen.ecore.genmodel.GenModelPackage</packageToRegister>
+            <packageToRegister>org.eclipse.emf.ecore.EcorePackage</packageToRegister>
+          </packagesToRegister>
+        </configuration>
+     </plugin>
     </plugins>
   </build>
 </project>
