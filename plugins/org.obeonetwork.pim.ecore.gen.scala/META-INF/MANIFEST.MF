@@ -1,10 +1,10 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Acceleo Scala Module Runtime Plug-in
+Bundle-Name: %pluginName
 Bundle-SymbolicName: org.obeonetwork.pim.ecore.gen.scala;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-Activator: org.obeonetwork.pim.ecore.gen.scala.EcoreGenScalaPlugin
-Bundle-Vendor: Obeo.fr
+Bundle-Vendor: %providerName
 Require-Bundle: org.eclipse.core.runtime, 
  org.eclipse.emf.codegen.ecore, 
  org.eclipse.emf.ecore,
@@ -21,4 +21,4 @@ Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-ActivationPolicy: lazy
 Eclipse-LazyStart: true
 Export-Package: org.obeonetwork.pim.ecore.gen.scala.main
-
+Bundle-Localization: plugin
