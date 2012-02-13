@@ -42,11 +42,11 @@
   <repositories>
     <repository>
       <id>github snapshot</id>
-      <url>http://github.com/sbegaudeau/maven-repository/raw/master/snapshots</url>
+      <url>https://github.com/sbegaudeau/maven-repository/raw/master/snapshots</url>
     </repository>
     <repository>
       <id>github release</id>
-      <url>http://github.com/sbegaudeau/maven-repository/raw/master/releases</url>
+      <url>https://github.com/sbegaudeau/maven-repository/raw/master/releases</url>
     </repository>
   </repositories>
   
