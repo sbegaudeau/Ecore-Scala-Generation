@@ -37,7 +37,7 @@
 
   <properties>
     <acceleo-version>3.3.0-SNAPSHOT</acceleo-version>
-    <tycho-version>0.12.0</tycho-version>
+    <tycho-version>0.13.0</tycho-version>
     <acceleo-site>https://hudson.eclipse.org/hudson/job/m2t-acceleo-master/lastSuccessfulBuild/artifact/Acceleo.p2.repository/</acceleo-site>
   </properties>
 
