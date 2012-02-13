@@ -42,11 +42,11 @@
   <repositories>
     <repository>
       <id>github snapshot</id>
-      <url>https://github.com/sbegaudeau/maven-repository/raw/master/snapshots</url>
+      <url>http://github.com/sbegaudeau/maven-repository/raw/master/snapshots</url>
     </repository>
     <repository>
       <id>github release</id>
-      <url>https://github.com/sbegaudeau/maven-repository/raw/master/releases</url>
+      <url>http://github.com/sbegaudeau/maven-repository/raw/master/releases</url>
     </repository>
   </repositories>
   
@@ -65,12 +65,16 @@
         <artifactId>tycho-source-plugin</artifactId>
       </plugin>
       <plugin>
-       <groupId>org.eclipse.acceleo</groupId>
-       <artifactId>maven</artifactId>
-       <version>3.2.1-SNAPSHOT</version>
-       <executions>
+        <groupId>org.eclipse.acceleo</groupId>
+        <artifactId>maven</artifactId>
+        <version>3.2.1-SNAPSHOT</version>
+        <executions>
           <execution>
+            <id>acceleo-compilation</id>
             <phase>compile</phase>
+            <goals>
+              <goal>acceleo-compile</goal>
+            </goals>
           </execution>
         </executions>
         <configuration>
@@ -89,7 +93,7 @@
             <packageToRegister>org.eclipse.emf.ecore.EcorePackage</packageToRegister>
           </packagesToRegister>
         </configuration>
-     </plugin>
+      </plugin>
     </plugins>
   </build>
 </project>
