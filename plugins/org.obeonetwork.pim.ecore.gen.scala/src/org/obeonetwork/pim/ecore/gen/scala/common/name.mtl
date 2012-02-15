@@ -10,7 +10,7 @@
 [/template]
 
 [template public genFieldName(anEStructuralFeature : EStructuralFeature)]
-[anEStructuralFeature.name.toLowerFirst()/]
+_[anEStructuralFeature.name.toLowerFirst()/]
 [/template]
 
 [template public genOperationName(anEOperation : EOperation)]
@@ -30,5 +30,5 @@ new
 [/template]
 
 [template public genMutatorName(anEStructuralFeature : EStructuralFeature)]
-set[anEStructuralFeature.name.toLowerFirst().toUpperFirst()/]
+[anEStructuralFeature.name.toLowerFirst().toLowerFirst()/]_
 [/template]

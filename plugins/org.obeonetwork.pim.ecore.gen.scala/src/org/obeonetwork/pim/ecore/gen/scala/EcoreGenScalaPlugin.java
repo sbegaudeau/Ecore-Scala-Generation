@@ -22,6 +22,12 @@ public class EcoreGenScalaPlugin extends Plugin {
      * The plug-in ID.
      */
     public static final String PLUGIN_ID = "org.obeonetwork.pim.ecore.gen.scala";
+    
+    public static final String PLATFORM_PLUGIN = "platform:/plugin/";
+    
+    public static final String TYPES_PROPERTIES = PLATFORM_PLUGIN + PLUGIN_ID + "/org/obeonetwork/pim/ecore/gen/scala/properties/types.properties";
+    
+    public static final String DEFAULT_VALUES_PROPERTIES = PLATFORM_PLUGIN + PLUGIN_ID + "/org/obeonetwork/pim/ecore/gen/scala/properties/defaultvalues.properties";
 
     /**
      * The shared instance.

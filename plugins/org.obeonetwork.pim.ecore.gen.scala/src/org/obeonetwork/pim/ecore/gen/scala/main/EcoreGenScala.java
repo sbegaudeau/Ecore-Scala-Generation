@@ -23,6 +23,7 @@ import org.eclipse.emf.common.util.Monitor;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.obeonetwork.pim.ecore.gen.scala.EcoreGenScalaPlugin;
 
 /**
  * Entry point of the 'EcoreGenScala' generation module.
@@ -253,7 +254,7 @@ public class EcoreGenScala extends AbstractAcceleoGenerator {
      * 
      * @return The list of properties file we need to add to the generation context.
      * @see java.util.ResourceBundle#getBundle(String)
-     * @generated
+     * @generated NOT
      */
     @Override
     public List<String> getProperties() {
@@ -268,6 +269,8 @@ public class EcoreGenScala extends AbstractAcceleoGenerator {
          * 
          * To learn more about Properties Files, have a look at the Acceleo Launcher documentation (Help -> Help Contents).
          */
+    	propertiesFiles.add(EcoreGenScalaPlugin.TYPES_PROPERTIES);
+    	propertiesFiles.add(EcoreGenScalaPlugin.DEFAULT_VALUES_PROPERTIES);
         return propertiesFiles;
     }
     

@@ -20,5 +20,6 @@ Require-Bundle: org.eclipse.core.runtime,
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
 Bundle-ActivationPolicy: lazy
 Eclipse-LazyStart: true
-Export-Package: org.obeonetwork.pim.ecore.gen.scala.main
+Export-Package: org.obeonetwork.pim.ecore.gen.scala.main,
+ org.obeonetwork.pim.ecore.gen.scala.services
 Bundle-Localization: plugin

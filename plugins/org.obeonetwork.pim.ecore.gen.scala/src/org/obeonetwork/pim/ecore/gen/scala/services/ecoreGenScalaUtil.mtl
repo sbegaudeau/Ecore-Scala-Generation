@@ -1,0 +1,10 @@
+[comment encoding = Cp1252 /]
+[module ecoreGenScalaUtil('http://www.eclipse.org/emf/2002/GenModel', 'http://www.eclipse.org/emf/2002/Ecore')/]
+
+[query public formatImport(imports : Sequence(String)) : Sequence(String) =
+	invoke('org.obeonetwork.pim.ecore.gen.scala.services.EcoreGenScalaUtil', 'formatImport(java.util.List)', Sequence{imports})
+/]
+
+[query public formatCopyright(copyright : String) : Sequence(String) =
+	invoke('org.obeonetwork.pim.ecore.gen.scala.services.EcoreGenScalaUtil', 'formatCopyrightHeader(java.lang.String)', Sequence{copyright})
+/]

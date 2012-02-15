@@ -29,6 +29,22 @@
 Impl
 [/template]
 
+[template public genQualifiedTypeName(anEClassifier : EClassifier) post(trim())]
+[if (not anEClassifier.instanceTypeName.oclIsUndefined())]
+	[anEClassifier.instanceTypeName.resolve()/]
+[else]
+	[anEClassifier.name.toUpperFirst().resolve()/]
+[/if]
+[/template]
+
+[template public genPackage(anEClassifier : EClassifier) post(trim())]
+[if (anEClassifier.genQualifiedTypeName().contains('.'))]
+	[if (getProperty('__package-convertion__' + anEClassifier.genQualifiedTypeName().substring(1, anEClassifier.genQualifiedTypeName().lastIndex('.') - 1)).size() > 0)]
+		[getProperty('__package-convertion__' + anEClassifier.genQualifiedTypeName().substring(1, anEClassifier.genQualifiedTypeName().lastIndex('.') - 1))/]
+	[/if]
+[/if]
+[/template]
+
 [template public genTypeName(anEClass : EClass) post(trim())]
 [if (not anEClass.instanceTypeName.oclIsUndefined())]
 [if (anEClass.instanceTypeName.contains('.'))]
@@ -43,13 +59,21 @@ Impl
 
 [template public genTypeName(anEClassifier : EClassifier) post(trim())]
 [if (not anEClassifier.instanceTypeName.oclIsUndefined())]
-[if (anEClassifier.instanceTypeName.contains('.'))]
-[anEClassifier.instanceTypeName.substring(anEClassifier.instanceTypeName.lastIndex('.') + 1)/]
+	[anEClassifier.instanceTypeName.resolve().nameFromQualifiedName()/]
 [else]
-[anEClassifier.instanceTypeName/]
+	[anEClassifier.name.toUpperFirst().resolve().nameFromQualifiedName()/]
 [/if]
+[/template]
+
+[template private resolve(aString : String) post(trim())]
+[getProperty('__type-convertion__' + aString)/]
+[/template]
+
+[template private nameFromQualifiedName(aString : String) post(trim())]
+[if (aString.contains('.'))]
+[aString.substring(aString.lastIndex('.') + 1)/]
 [else]
-[anEClassifier.name.toUpperFirst()/]
+[aString/]
 [/if]
 [/template]
 
@@ -85,6 +109,54 @@ Impl
 		[/if]
 	[/if]
 [else]
-[anETypedElement.eType.genTypeName()/]
+	[anETypedElement.eType.genTypeName()/]
 [/if]
+[/template]
+
+[template public genDefaultValue(anETypedElement : ETypedElement) post(trim())]
+[if (anETypedElement.upperBound  > 1)]
+	[if (anETypedElement.unique)]
+		[if (anETypedElement.ordered)]
+			[if (anETypedElement.lowerBound > 1)]
+				None
+			[else]
+				HashSet['['/][anETypedElement.eType.genTypeName()/][']'/]()
+			[/if]
+		[else]
+			[if (anETypedElement.lowerBound > 1)]
+				None
+			[else]
+				HashSet['['/][anETypedElement.eType.genTypeName()/][']'/]()
+			[/if]
+		[/if]
+	[else]
+		[if (anETypedElement.ordered)]
+			[if (anETypedElement.lowerBound > 1)]
+				None
+			[else]
+				List['['/][anETypedElement.eType.genTypeName()/][']'/]()
+			[/if]
+		[else]
+			[if (anETypedElement.lowerBound > 1)]
+				None
+			[else]
+				List['['/][anETypedElement.eType.genTypeName()/][']'/]()
+			[/if]
+		[/if]
+	[/if]
+[else]
+	[anETypedElement.eType.genDefaultValue()/]
+[/if]
+[/template]
+
+[template public genDefaultValue(anEClassifier : EClassifier) post(trim())]
+[if (not anEClassifier.instanceTypeName.oclIsUndefined())]
+	[anEClassifier.instanceTypeName.resolve().defaultValue()/]
+[else]
+	[anEClassifier.name.toUpperFirst().resolve().defaultValue()/]
+[/if]
+[/template]
+
+[template public defaultValue(aString : String) post(trim())]
+[getProperty('__default-value__' + aString)/]
 [/template]

@@ -65,12 +65,12 @@ extends [aGenClass.traitSuperTypes()->first().genTypeName()/][for (aTrait : ECla
 [template private fields(aGenClass : GenClass)]
 [for (anEAttribute : EAttribute | aGenClass.ecoreClass.eAttributes->reject(anEAttr: EAttribute | anEAttr.volatile))]
 [anEAttribute.genImplementationScalaDoc()/]
-[anEAttribute.visibility()/][anEAttribute.override()/]var [anEAttribute.genFieldName()/]: [anEAttribute.genTypeName()/];
+[anEAttribute.visibility()/][anEAttribute.override()/]var [anEAttribute.genFieldName()/]: [anEAttribute.genTypeName()/] = [anEAttribute.genDefaultValue()/];
 
 [/for]
 [for (anEReference : EReference | aGenClass.ecoreClass.eReferences->reject(anERef: EReference | anERef.volatile))]
 [anEReference.genImplementationScalaDoc()/]
-[anEReference.visibility()/][anEReference.override()/]var [anEReference.genFieldName()/]: [anEReference.genTypeName()/];
+[anEReference.visibility()/][anEReference.override()/]var [anEReference.genFieldName()/]: [anEReference.genTypeName()/] = [anEReference.genDefaultValue()/];
 
 [/for]
 [/template]
@@ -123,7 +123,7 @@ private['['/]this[']'/]
 
 [template private defaultBody(anEOperation : EOperation)]
 [if (not anEOperation.eType.oclIsUndefined())]
-return null;
+return [anEOperation.genDefaultValue()/];
 [/if]
 [/template]
 
@@ -134,28 +134,28 @@ return null;
 [template private accessors(aGenClass : GenClass)]
 [for (anEAttribute : EAttribute | aGenClass.ecoreClass.eAttributes)]
 [anEAttribute.genImplementationGetterScalaDoc()/]
-def [anEAttribute.genAccessorName()/](): [anEAttribute.genTypeName()/] {
-	return this.[anEAttribute.genFieldName()/];
+def [anEAttribute.genAccessorName()/](): [anEAttribute.genTypeName()/] = {
+	[if (not anEAttribute.volatile)]return this.[anEAttribute.genFieldName()/];[else]return [anEAttribute.genDefaultValue()/];[/if]
 }
 [if (not anEAttribute.unsettable)]
 
 [anEAttribute.genImplementationSetterScalaDoc()/]
 def [anEAttribute.genMutatorName()/]([anEAttribute.genSetterPrefix()/][anEAttribute.genFieldName()/]: [anEAttribute.genTypeName()/]) {
-	this.[anEAttribute.genFieldName()/] = [anEAttribute.genSetterPrefix()/][anEAttribute.genFieldName()/];
+	[if (not anEAttribute.volatile)]this.[anEAttribute.genFieldName()/] = [anEAttribute.genSetterPrefix()/][anEAttribute.genFieldName()/];[/if]
 }
 
 [/if]
 [/for]
 [for (anEReference : EReference | aGenClass.ecoreClass.eReferences)]
 [anEReference.genImplementationGetterScalaDoc()/]
-def [anEReference.genAccessorName()/](): [anEReference.genTypeName()/] {
-	return this.[anEReference.genFieldName()/];
+def [anEReference.genAccessorName()/](): [anEReference.genTypeName()/] = {
+	[if (not anEReference.volatile)]return this.[anEReference.genFieldName()/];[else]return [anEReference.genDefaultValue()/];[/if]
 }
 [if (not anEReference.unsettable)]
 
 [anEReference.genImplementationSetterScalaDoc()/]
 def [anEReference.genMutatorName()/]([anEReference.genSetterPrefix()/][anEReference.genFieldName()/]: [anEReference.genTypeName()/]) {
-	this.[anEReference.genFieldName()/] = [anEReference.genSetterPrefix()/][anEReference.genFieldName()/];
+	[if (not anEReference.volatile)]this.[anEReference.genFieldName()/] = [anEReference.genSetterPrefix()/][anEReference.genFieldName()/];[/if]
 }
 
 [/if]

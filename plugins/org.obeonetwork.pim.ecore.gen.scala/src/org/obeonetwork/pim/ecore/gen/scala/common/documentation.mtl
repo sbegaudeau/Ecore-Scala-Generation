@@ -3,10 +3,13 @@
 
 [import org::obeonetwork::pim::ecore::gen::scala::common::name /]
 [import org::obeonetwork::pim::ecore::gen::scala::common::type /]
+[import org::obeonetwork::pim::ecore::gen::scala::services::ecoreGenScalaUtil /]
 
 [template public genScaladocHeader(aGenClass : GenClass)]
 /**
- * [aGenClass.genPackage.genModel.copyrightText.substituteAll('\r\n', '\r\n * ')/]
+[for (line : String | aGenClass.genPackage.genModel.copyrightText.formatCopyright())]
+ * [line/]
+[/for]
  */
 [/template]
 

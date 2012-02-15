@@ -4,7 +4,6 @@
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
- * 
  * Contributors:
  *     Stephane Begaudeau (Obeo) - initial API and implementation
  */
@@ -18,122 +17,122 @@ package org.obeonetwork.pim.ecore.gen.scala.gen;
  * ScalaDoc of DocumentedAttributesClass.
  * 
  * The following features are implemented:
- * - DocumentedAttributesClassImpl#firstAttribute
- * - DocumentedAttributesClassImpl#secondAttribute
- * - DocumentedAttributesClassImpl#thirdAttribute
- * - DocumentedAttributesClassImpl#fourthAttribute
+ * - DocumentedAttributesClassImpl#_firstAttribute
+ * - DocumentedAttributesClassImpl#_secondAttribute
+ * - DocumentedAttributesClassImpl#_thirdAttribute
+ * - DocumentedAttributesClassImpl#_fourthAttribute
  * 
  * <!-- End of user code -->
  */
 class DocumentedAttributesClassImpl {
 	/**
-	 * <!-- Start of user code for the attribute firstAttribute -->
-	 * ScalaDoc of firstAttribute.
+	 * <!-- Start of user code for the attribute _firstAttribute -->
+	 * ScalaDoc of _firstAttribute.
 	 * <!-- End of user code -->
 	 */
-	private[this] var firstAttribute: String;
+	private[this] var _firstAttribute: String = "";
 	
 	/**
-	 * <!-- Start of user code for the attribute secondAttribute -->
-	 * ScalaDoc of secondAttribute.
+	 * <!-- Start of user code for the attribute _secondAttribute -->
+	 * ScalaDoc of _secondAttribute.
 	 * <!-- End of user code -->
 	 */
-	private[this] var secondAttribute: int;
+	private[this] var _secondAttribute: Int = 0;
 	
 	/**
-	 * <!-- Start of user code for the attribute thirdAttribute -->
-	 * ScalaDoc of thirdAttribute.
+	 * <!-- Start of user code for the attribute _thirdAttribute -->
+	 * ScalaDoc of _thirdAttribute.
 	 * <!-- End of user code -->
 	 */
-	private[this] var thirdAttribute: long;
+	private[this] var _thirdAttribute: Long = 0;
 	
 	/**
-	 * <!-- Start of user code for the attribute fourthAttribute -->
-	 * ScalaDoc of fourthAttribute.
+	 * <!-- Start of user code for the attribute _fourthAttribute -->
+	 * ScalaDoc of _fourthAttribute.
 	 * <!-- End of user code -->
 	 */
-	private[this] var fourthAttribute: boolean;
+	private[this] var _fourthAttribute: Boolean = false;
 	
 	
 	
 	
 	/**
 	 * <!-- Start of user code for the accessor firstAttribute -->
-	 * ScalaDoc of firstAttribute.
+	 * ScalaDoc of _firstAttribute.
 	 * @inheritdoc
 	 * <!-- End of user code -->
 	 */
-	def firstAttribute(): String {
-		return this.firstAttribute;
+	def firstAttribute(): String = {
+		return this._firstAttribute;
 	}
 	
 	/**
-	 * <!-- Start of user code for the mutator setFirstAttribute -->
-	 * ScalaDoc of setFirstAttribute.
+	 * <!-- Start of user code for the mutator firstAttribute_ -->
+	 * ScalaDoc of firstAttribute_.
 	 * @inheritdoc
 	 * <!-- End of user code -->
 	 */
-	def setFirstAttribute(newfirstAttribute: String) {
-		this.firstAttribute = newfirstAttribute;
+	def firstAttribute_(new_firstAttribute: String) {
+		this._firstAttribute = new_firstAttribute;
 	}
 	
 	/**
 	 * <!-- Start of user code for the accessor secondAttribute -->
-	 * ScalaDoc of secondAttribute.
+	 * ScalaDoc of _secondAttribute.
 	 * @inheritdoc
 	 * <!-- End of user code -->
 	 */
-	def secondAttribute(): int {
-		return this.secondAttribute;
+	def secondAttribute(): Int = {
+		return this._secondAttribute;
 	}
 	
 	/**
-	 * <!-- Start of user code for the mutator setSecondAttribute -->
-	 * ScalaDoc of setSecondAttribute.
+	 * <!-- Start of user code for the mutator secondAttribute_ -->
+	 * ScalaDoc of secondAttribute_.
 	 * @inheritdoc
 	 * <!-- End of user code -->
 	 */
-	def setSecondAttribute(newsecondAttribute: int) {
-		this.secondAttribute = newsecondAttribute;
+	def secondAttribute_(new_secondAttribute: Int) {
+		this._secondAttribute = new_secondAttribute;
 	}
 	
 	/**
 	 * <!-- Start of user code for the accessor thirdAttribute -->
-	 * ScalaDoc of thirdAttribute.
+	 * ScalaDoc of _thirdAttribute.
 	 * @inheritdoc
 	 * <!-- End of user code -->
 	 */
-	def thirdAttribute(): long {
-		return this.thirdAttribute;
+	def thirdAttribute(): Long = {
+		return this._thirdAttribute;
 	}
 	
 	/**
-	 * <!-- Start of user code for the mutator setThirdAttribute -->
-	 * ScalaDoc of setThirdAttribute.
+	 * <!-- Start of user code for the mutator thirdAttribute_ -->
+	 * ScalaDoc of thirdAttribute_.
 	 * @inheritdoc
 	 * <!-- End of user code -->
 	 */
-	def setThirdAttribute(newthirdAttribute: long) {
-		this.thirdAttribute = newthirdAttribute;
+	def thirdAttribute_(new_thirdAttribute: Long) {
+		this._thirdAttribute = new_thirdAttribute;
 	}
 	
 	/**
 	 * <!-- Start of user code for the accessor fourthAttribute -->
-	 * ScalaDoc of fourthAttribute.
+	 * ScalaDoc of _fourthAttribute.
 	 * @inheritdoc
 	 * <!-- End of user code -->
 	 */
-	def fourthAttribute(): boolean {
-		return this.fourthAttribute;
+	def fourthAttribute(): Boolean = {
+		return this._fourthAttribute;
 	}
 	
 	/**
-	 * <!-- Start of user code for the mutator setFourthAttribute -->
-	 * ScalaDoc of setFourthAttribute.
+	 * <!-- Start of user code for the mutator fourthAttribute_ -->
+	 * ScalaDoc of fourthAttribute_.
 	 * @inheritdoc
 	 * <!-- End of user code -->
 	 */
-	def setFourthAttribute(newfourthAttribute: boolean) {
-		this.fourthAttribute = newfourthAttribute;
+	def fourthAttribute_(new_fourthAttribute: Boolean) {
+		this._fourthAttribute = new_fourthAttribute;
 	}
 }

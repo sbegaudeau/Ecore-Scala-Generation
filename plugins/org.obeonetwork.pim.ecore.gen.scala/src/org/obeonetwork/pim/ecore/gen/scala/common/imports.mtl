@@ -1,6 +1,9 @@
 [comment encoding = UTF-8 /]
 [module imports('http://www.eclipse.org/emf/2002/GenModel', 'http://www.eclipse.org/emf/2002/Ecore')]
 
+[import org::obeonetwork::pim::ecore::gen::scala::common::type /]
+[import org::obeonetwork::pim::ecore::gen::scala::services::ecoreGenScalaUtil /]
+
 [template public genImports(aGenClass : GenClass) post(trim())]
 [aGenClass.mandatoryImports()/]
 
@@ -8,6 +11,33 @@
 // [/protected]
 [/template]
 
-[template private mandatoryImports(aGenClass : GenClass)]
-
+[template private mandatoryImports(aGenClass : GenClass) post(trim())]
+[for (aString : String | aGenClass.importValue()->asSequence()->formatImport())]
+import [aString/];
+[/for]
 [/template]
+
+[query private importValue(aGenClass : GenClass) : OrderedSet(String) =
+	aGenClass.fieldsType()
+	->union(aGenClass.operationsType())->asOrderedSet()
+	->reject(anETypedElement : ETypedElement | anETypedElement.eType.genPackage().trim().size() = 0)
+	.importQualifiedName()->asOrderedSet()
+/]
+
+[template public importQualifiedName(anETypedElement : ETypedElement)]
+[anETypedElement.eType.genQualifiedTypeName()/]
+[/template]
+
+
+[query private fieldsType(aGenClass : GenClass) : OrderedSet(ETypedElement) =
+	aGenClass.ecoreClass.eStructuralFeatures->asOrderedSet()
+/]
+
+[query private operationsType(aGenClass : GenClass) : OrderedSet(ETypedElement) =
+	let operations : OrderedSet(EOperation) = aGenClass.ecoreClass.eOperations in
+		if (operations->size() > 0) then
+			operations->filter(ETypedElement)->union(operations.eParameters->filter(ETypedElement)->asOrderedSet())->asOrderedSet()
+		else
+			operations.eParameters->asOrderedSet()
+		endif
+/]

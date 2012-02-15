@@ -4,7 +4,6 @@
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
- * 
  * Contributors:
  *     Stephane Begaudeau (Obeo) - initial API and implementation
  */
@@ -18,10 +17,10 @@ package org.obeonetwork.pim.ecore.gen.scala.gen;
  * ScalaDoc of DocumentedAttributesClass.
  * 
  * The following features are supported:
- * - DocumentedAttributesClass#firstAttribute
- * - DocumentedAttributesClass#secondAttribute
- * - DocumentedAttributesClass#thirdAttribute
- * - DocumentedAttributesClass#fourthAttribute
+ * - DocumentedAttributesClass#_firstAttribute
+ * - DocumentedAttributesClass#_secondAttribute
+ * - DocumentedAttributesClass#_thirdAttribute
+ * - DocumentedAttributesClass#_fourthAttribute
  * 
  * @see Package
  * @model
@@ -30,101 +29,101 @@ package org.obeonetwork.pim.ecore.gen.scala.gen;
 trait DocumentedAttributesClass {
 	/**
 	 * <!-- Start of user code for the accessor firstAttribute -->
-	 * ScalaDoc of firstAttribute.
+	 * ScalaDoc of _firstAttribute.
 	 * 
-	 * Returns the value of the 'firstAttribute' attribute.
+	 * Returns the value of the '_firstAttribute' attribute.
 	 * 
 	 * @return
-	 *       The value of the field 'firstAttribute'.
+	 *       The value of the field '_firstAttribute'.
 	 * @model
 	 * <!-- End of user code -->
 	 */
 	def firstAttribute(): String
 	
 	/**
-	 * <!-- Start of user code for the mutator setFirstAttribute -->
-	 * ScalaDoc of setFirstAttribute.
+	 * <!-- Start of user code for the mutator firstAttribute_ -->
+	 * ScalaDoc of firstAttribute_.
 	 * 
-	 * Sets the value of the 'firstAttribute' attribute.
+	 * Sets the value of the '_firstAttribute' attribute.
 	 * 
-	 * @param newfirstAttribute
-	 *       Sets the value of the field 'firstAttribute'.
+	 * @param new_firstAttribute
+	 *       Sets the value of the field '_firstAttribute'.
 	 * <!-- End of user code -->
 	 */
-	def setFirstAttribute(newfirstAttribute: String)
+	def firstAttribute_(new_firstAttribute: String)
 	
 	/**
 	 * <!-- Start of user code for the accessor secondAttribute -->
-	 * ScalaDoc of secondAttribute.
+	 * ScalaDoc of _secondAttribute.
 	 * 
-	 * Returns the value of the 'secondAttribute' attribute.
+	 * Returns the value of the '_secondAttribute' attribute.
 	 * 
 	 * @return
-	 *       The value of the field 'secondAttribute'.
+	 *       The value of the field '_secondAttribute'.
 	 * @model
 	 * <!-- End of user code -->
 	 */
-	def secondAttribute(): int
+	def secondAttribute(): Int
 	
 	/**
-	 * <!-- Start of user code for the mutator setSecondAttribute -->
-	 * ScalaDoc of setSecondAttribute.
+	 * <!-- Start of user code for the mutator secondAttribute_ -->
+	 * ScalaDoc of secondAttribute_.
 	 * 
-	 * Sets the value of the 'secondAttribute' attribute.
+	 * Sets the value of the '_secondAttribute' attribute.
 	 * 
-	 * @param newsecondAttribute
-	 *       Sets the value of the field 'secondAttribute'.
+	 * @param new_secondAttribute
+	 *       Sets the value of the field '_secondAttribute'.
 	 * <!-- End of user code -->
 	 */
-	def setSecondAttribute(newsecondAttribute: int)
+	def secondAttribute_(new_secondAttribute: Int)
 	
 	/**
 	 * <!-- Start of user code for the accessor thirdAttribute -->
-	 * ScalaDoc of thirdAttribute.
+	 * ScalaDoc of _thirdAttribute.
 	 * 
-	 * Returns the value of the 'thirdAttribute' attribute.
+	 * Returns the value of the '_thirdAttribute' attribute.
 	 * 
 	 * @return
-	 *       The value of the field 'thirdAttribute'.
+	 *       The value of the field '_thirdAttribute'.
 	 * @model
 	 * <!-- End of user code -->
 	 */
-	def thirdAttribute(): long
+	def thirdAttribute(): Long
 	
 	/**
-	 * <!-- Start of user code for the mutator setThirdAttribute -->
-	 * ScalaDoc of setThirdAttribute.
+	 * <!-- Start of user code for the mutator thirdAttribute_ -->
+	 * ScalaDoc of thirdAttribute_.
 	 * 
-	 * Sets the value of the 'thirdAttribute' attribute.
+	 * Sets the value of the '_thirdAttribute' attribute.
 	 * 
-	 * @param newthirdAttribute
-	 *       Sets the value of the field 'thirdAttribute'.
+	 * @param new_thirdAttribute
+	 *       Sets the value of the field '_thirdAttribute'.
 	 * <!-- End of user code -->
 	 */
-	def setThirdAttribute(newthirdAttribute: long)
+	def thirdAttribute_(new_thirdAttribute: Long)
 	
 	/**
 	 * <!-- Start of user code for the accessor fourthAttribute -->
-	 * ScalaDoc of fourthAttribute.
+	 * ScalaDoc of _fourthAttribute.
 	 * 
-	 * Returns the value of the 'fourthAttribute' attribute.
+	 * Returns the value of the '_fourthAttribute' attribute.
 	 * 
 	 * @return
-	 *       The value of the field 'fourthAttribute'.
+	 *       The value of the field '_fourthAttribute'.
 	 * @model
 	 * <!-- End of user code -->
 	 */
-	def fourthAttribute(): boolean
+	def fourthAttribute(): Boolean
 	
 	/**
-	 * <!-- Start of user code for the mutator setFourthAttribute -->
-	 * ScalaDoc of setFourthAttribute.
+	 * <!-- Start of user code for the mutator fourthAttribute_ -->
+	 * ScalaDoc of fourthAttribute_.
 	 * 
-	 * Sets the value of the 'fourthAttribute' attribute.
+	 * Sets the value of the '_fourthAttribute' attribute.
 	 * 
-	 * @param newfourthAttribute
-	 *       Sets the value of the field 'fourthAttribute'.
+	 * @param new_fourthAttribute
+	 *       Sets the value of the field '_fourthAttribute'.
 	 * <!-- End of user code -->
 	 */
-	def setFourthAttribute(newfourthAttribute: boolean)
+	def fourthAttribute_(new_fourthAttribute: Boolean)
 }

@@ -4,11 +4,24 @@
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
- * 
  * Contributors:
  *     Stephane Begaudeau (Obeo) - initial API and implementation
  */
 package org.obeonetwork.pim.ecore.gen.scala.gen;
+
+import java.lang.reflect.InvocationTargetException;
+import java.util.Date;
+import org.eclipse.emf.common.util.DiagnosticChain;
+import org.eclipse.emf.common.util.Enumerator;
+import org.eclipse.emf.common.util.TreeIterator;
+import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.emf.ecore.util.FeatureMap;
+import org.eclipse.emf.ecore.util.FeatureMap$Entry;
+import scala.collection.mutable.List;
+import scala.collection.mutable.Map;
+import scala.math.BigDecimal;
+import scala.math.BigInt;
 
 // Start of user code for imports
 // End of user code
@@ -18,39 +31,39 @@ package org.obeonetwork.pim.ecore.gen.scala.gen;
  * ScalaDoc of AttributesClass.
  * 
  * The following features are supported:
- * - AttributesClass#firstAttribute
- * - AttributesClass#secondAttribute
- * - AttributesClass#thirdAttribute
- * - AttributesClass#fourthAttribute
- * - AttributesClass#fifthAttribute
- * - AttributesClass#sixthAttribute
- * - AttributesClass#seventhAttribute
- * - AttributesClass#eighthAttribute
- * - AttributesClass#ninthAttribute
- * - AttributesClass#tenthAttribute
- * - AttributesClass#eleventhAttribute
- * - AttributesClass#twelfthAttribute
- * - AttributesClass#thirteenthAttribute
- * - AttributesClass#fourteenthAttribute
- * - AttributesClass#fifteenthAttribute
- * - AttributesClass#sixteenthAttribute
- * - AttributesClass#seventeenthAttribute
- * - AttributesClass#eighteenthAttribute
- * - AttributesClass#nineteenthAttribute
- * - AttributesClass#twentiethAttribute
- * - AttributesClass#twentyFirstAttribute
- * - AttributesClass#twentySecondAttribute
- * - AttributesClass#twentyThirdAttribute
- * - AttributesClass#twentyFourthAttribute
- * - AttributesClass#twentyFifthAttribute
- * - AttributesClass#twentySixthAttribute
- * - AttributesClass#twentySeventhAttribute
- * - AttributesClass#twentyEighthAttribute
- * - AttributesClass#twentyNinthAttribute
- * - AttributesClass#thirtiethAttribute
- * - AttributesClass#thirtyFirstAttribute
- * - AttributesClass#thirtySecondAttribute
- * - AttributesClass#thirtyThirdAttribute
+ * - AttributesClass#_firstAttribute
+ * - AttributesClass#_secondAttribute
+ * - AttributesClass#_thirdAttribute
+ * - AttributesClass#_fourthAttribute
+ * - AttributesClass#_fifthAttribute
+ * - AttributesClass#_sixthAttribute
+ * - AttributesClass#_seventhAttribute
+ * - AttributesClass#_eighthAttribute
+ * - AttributesClass#_ninthAttribute
+ * - AttributesClass#_tenthAttribute
+ * - AttributesClass#_eleventhAttribute
+ * - AttributesClass#_twelfthAttribute
+ * - AttributesClass#_thirteenthAttribute
+ * - AttributesClass#_fourteenthAttribute
+ * - AttributesClass#_fifteenthAttribute
+ * - AttributesClass#_sixteenthAttribute
+ * - AttributesClass#_seventeenthAttribute
+ * - AttributesClass#_eighteenthAttribute
+ * - AttributesClass#_nineteenthAttribute
+ * - AttributesClass#_twentiethAttribute
+ * - AttributesClass#_twentyFirstAttribute
+ * - AttributesClass#_twentySecondAttribute
+ * - AttributesClass#_twentyThirdAttribute
+ * - AttributesClass#_twentyFourthAttribute
+ * - AttributesClass#_twentyFifthAttribute
+ * - AttributesClass#_twentySixthAttribute
+ * - AttributesClass#_twentySeventhAttribute
+ * - AttributesClass#_twentyEighthAttribute
+ * - AttributesClass#_twentyNinthAttribute
+ * - AttributesClass#_thirtiethAttribute
+ * - AttributesClass#_thirtyFirstAttribute
+ * - AttributesClass#_thirtySecondAttribute
+ * - AttributesClass#_thirtyThirdAttribute
  * 
  * @see Package
  * @model
@@ -59,826 +72,826 @@ package org.obeonetwork.pim.ecore.gen.scala.gen;
 trait AttributesClass {
 	/**
 	 * <!-- Start of user code for the accessor firstAttribute -->
-	 * ScalaDoc of firstAttribute.
+	 * ScalaDoc of _firstAttribute.
 	 * 
-	 * Returns the value of the 'firstAttribute' attribute.
+	 * Returns the value of the '_firstAttribute' attribute.
 	 * 
 	 * @return
-	 *       The value of the field 'firstAttribute'.
+	 *       The value of the field '_firstAttribute'.
 	 * @model
 	 * <!-- End of user code -->
 	 */
 	def firstAttribute(): BigDecimal
 	
 	/**
-	 * <!-- Start of user code for the mutator setFirstAttribute -->
-	 * ScalaDoc of setFirstAttribute.
+	 * <!-- Start of user code for the mutator firstAttribute_ -->
+	 * ScalaDoc of firstAttribute_.
 	 * 
-	 * Sets the value of the 'firstAttribute' attribute.
+	 * Sets the value of the '_firstAttribute' attribute.
 	 * 
-	 * @param newfirstAttribute
-	 *       Sets the value of the field 'firstAttribute'.
+	 * @param new_firstAttribute
+	 *       Sets the value of the field '_firstAttribute'.
 	 * <!-- End of user code -->
 	 */
-	def setFirstAttribute(newfirstAttribute: BigDecimal)
+	def firstAttribute_(new_firstAttribute: BigDecimal)
 	
 	/**
 	 * <!-- Start of user code for the accessor secondAttribute -->
-	 * ScalaDoc of secondAttribute.
+	 * ScalaDoc of _secondAttribute.
 	 * 
-	 * Returns the value of the 'secondAttribute' attribute.
+	 * Returns the value of the '_secondAttribute' attribute.
 	 * 
 	 * @return
-	 *       The value of the field 'secondAttribute'.
+	 *       The value of the field '_secondAttribute'.
 	 * @model
 	 * <!-- End of user code -->
 	 */
-	def secondAttribute(): BigInteger
+	def secondAttribute(): BigInt
 	
 	/**
-	 * <!-- Start of user code for the mutator setSecondAttribute -->
-	 * ScalaDoc of setSecondAttribute.
+	 * <!-- Start of user code for the mutator secondAttribute_ -->
+	 * ScalaDoc of secondAttribute_.
 	 * 
-	 * Sets the value of the 'secondAttribute' attribute.
+	 * Sets the value of the '_secondAttribute' attribute.
 	 * 
-	 * @param newsecondAttribute
-	 *       Sets the value of the field 'secondAttribute'.
+	 * @param new_secondAttribute
+	 *       Sets the value of the field '_secondAttribute'.
 	 * <!-- End of user code -->
 	 */
-	def setSecondAttribute(newsecondAttribute: BigInteger)
+	def secondAttribute_(new_secondAttribute: BigInt)
 	
 	/**
 	 * <!-- Start of user code for the accessor thirdAttribute -->
-	 * ScalaDoc of thirdAttribute.
+	 * ScalaDoc of _thirdAttribute.
 	 * 
-	 * Returns the value of the 'thirdAttribute' attribute.
+	 * Returns the value of the '_thirdAttribute' attribute.
 	 * 
 	 * @return
-	 *       The value of the field 'thirdAttribute'.
+	 *       The value of the field '_thirdAttribute'.
 	 * @model
 	 * <!-- End of user code -->
 	 */
-	def thirdAttribute(): boolean
+	def thirdAttribute(): Boolean
 	
 	/**
-	 * <!-- Start of user code for the mutator setThirdAttribute -->
-	 * ScalaDoc of setThirdAttribute.
+	 * <!-- Start of user code for the mutator thirdAttribute_ -->
+	 * ScalaDoc of thirdAttribute_.
 	 * 
-	 * Sets the value of the 'thirdAttribute' attribute.
+	 * Sets the value of the '_thirdAttribute' attribute.
 	 * 
-	 * @param newthirdAttribute
-	 *       Sets the value of the field 'thirdAttribute'.
+	 * @param new_thirdAttribute
+	 *       Sets the value of the field '_thirdAttribute'.
 	 * <!-- End of user code -->
 	 */
-	def setThirdAttribute(newthirdAttribute: boolean)
+	def thirdAttribute_(new_thirdAttribute: Boolean)
 	
 	/**
 	 * <!-- Start of user code for the accessor fourthAttribute -->
-	 * ScalaDoc of fourthAttribute.
+	 * ScalaDoc of _fourthAttribute.
 	 * 
-	 * Returns the value of the 'fourthAttribute' attribute.
+	 * Returns the value of the '_fourthAttribute' attribute.
 	 * 
 	 * @return
-	 *       The value of the field 'fourthAttribute'.
+	 *       The value of the field '_fourthAttribute'.
 	 * @model
 	 * <!-- End of user code -->
 	 */
 	def fourthAttribute(): Boolean
 	
 	/**
-	 * <!-- Start of user code for the mutator setFourthAttribute -->
-	 * ScalaDoc of setFourthAttribute.
+	 * <!-- Start of user code for the mutator fourthAttribute_ -->
+	 * ScalaDoc of fourthAttribute_.
 	 * 
-	 * Sets the value of the 'fourthAttribute' attribute.
+	 * Sets the value of the '_fourthAttribute' attribute.
 	 * 
-	 * @param newfourthAttribute
-	 *       Sets the value of the field 'fourthAttribute'.
+	 * @param new_fourthAttribute
+	 *       Sets the value of the field '_fourthAttribute'.
 	 * <!-- End of user code -->
 	 */
-	def setFourthAttribute(newfourthAttribute: Boolean)
+	def fourthAttribute_(new_fourthAttribute: Boolean)
 	
 	/**
 	 * <!-- Start of user code for the accessor fifthAttribute -->
-	 * ScalaDoc of fifthAttribute.
+	 * ScalaDoc of _fifthAttribute.
 	 * 
-	 * Returns the value of the 'fifthAttribute' attribute.
+	 * Returns the value of the '_fifthAttribute' attribute.
 	 * 
 	 * @return
-	 *       The value of the field 'fifthAttribute'.
+	 *       The value of the field '_fifthAttribute'.
 	 * @model
 	 * <!-- End of user code -->
 	 */
-	def fifthAttribute(): byte
+	def fifthAttribute(): Byte
 	
 	/**
-	 * <!-- Start of user code for the mutator setFifthAttribute -->
-	 * ScalaDoc of setFifthAttribute.
+	 * <!-- Start of user code for the mutator fifthAttribute_ -->
+	 * ScalaDoc of fifthAttribute_.
 	 * 
-	 * Sets the value of the 'fifthAttribute' attribute.
+	 * Sets the value of the '_fifthAttribute' attribute.
 	 * 
-	 * @param newfifthAttribute
-	 *       Sets the value of the field 'fifthAttribute'.
+	 * @param new_fifthAttribute
+	 *       Sets the value of the field '_fifthAttribute'.
 	 * <!-- End of user code -->
 	 */
-	def setFifthAttribute(newfifthAttribute: byte)
+	def fifthAttribute_(new_fifthAttribute: Byte)
 	
 	/**
 	 * <!-- Start of user code for the accessor sixthAttribute -->
-	 * ScalaDoc of sixthAttribute.
+	 * ScalaDoc of _sixthAttribute.
 	 * 
-	 * Returns the value of the 'sixthAttribute' attribute.
+	 * Returns the value of the '_sixthAttribute' attribute.
 	 * 
 	 * @return
-	 *       The value of the field 'sixthAttribute'.
+	 *       The value of the field '_sixthAttribute'.
 	 * @model
 	 * <!-- End of user code -->
 	 */
-	def sixthAttribute(): byte[]
+	def sixthAttribute(): Array[Byte]
 	
 	/**
-	 * <!-- Start of user code for the mutator setSixthAttribute -->
-	 * ScalaDoc of setSixthAttribute.
+	 * <!-- Start of user code for the mutator sixthAttribute_ -->
+	 * ScalaDoc of sixthAttribute_.
 	 * 
-	 * Sets the value of the 'sixthAttribute' attribute.
+	 * Sets the value of the '_sixthAttribute' attribute.
 	 * 
-	 * @param newsixthAttribute
-	 *       Sets the value of the field 'sixthAttribute'.
+	 * @param new_sixthAttribute
+	 *       Sets the value of the field '_sixthAttribute'.
 	 * <!-- End of user code -->
 	 */
-	def setSixthAttribute(newsixthAttribute: byte[])
+	def sixthAttribute_(new_sixthAttribute: Array[Byte])
 	
 	/**
 	 * <!-- Start of user code for the accessor seventhAttribute -->
-	 * ScalaDoc of seventhAttribute.
+	 * ScalaDoc of _seventhAttribute.
 	 * 
-	 * Returns the value of the 'seventhAttribute' attribute.
+	 * Returns the value of the '_seventhAttribute' attribute.
 	 * 
 	 * @return
-	 *       The value of the field 'seventhAttribute'.
+	 *       The value of the field '_seventhAttribute'.
 	 * @model
 	 * <!-- End of user code -->
 	 */
 	def seventhAttribute(): Byte
 	
 	/**
-	 * <!-- Start of user code for the mutator setSeventhAttribute -->
-	 * ScalaDoc of setSeventhAttribute.
+	 * <!-- Start of user code for the mutator seventhAttribute_ -->
+	 * ScalaDoc of seventhAttribute_.
 	 * 
-	 * Sets the value of the 'seventhAttribute' attribute.
+	 * Sets the value of the '_seventhAttribute' attribute.
 	 * 
-	 * @param newseventhAttribute
-	 *       Sets the value of the field 'seventhAttribute'.
+	 * @param new_seventhAttribute
+	 *       Sets the value of the field '_seventhAttribute'.
 	 * <!-- End of user code -->
 	 */
-	def setSeventhAttribute(newseventhAttribute: Byte)
+	def seventhAttribute_(new_seventhAttribute: Byte)
 	
 	/**
 	 * <!-- Start of user code for the accessor eighthAttribute -->
-	 * ScalaDoc of eighthAttribute.
+	 * ScalaDoc of _eighthAttribute.
 	 * 
-	 * Returns the value of the 'eighthAttribute' attribute.
+	 * Returns the value of the '_eighthAttribute' attribute.
 	 * 
 	 * @return
-	 *       The value of the field 'eighthAttribute'.
+	 *       The value of the field '_eighthAttribute'.
 	 * @model
 	 * <!-- End of user code -->
 	 */
-	def eighthAttribute(): char
+	def eighthAttribute(): Char
 	
 	/**
-	 * <!-- Start of user code for the mutator setEighthAttribute -->
-	 * ScalaDoc of setEighthAttribute.
+	 * <!-- Start of user code for the mutator eighthAttribute_ -->
+	 * ScalaDoc of eighthAttribute_.
 	 * 
-	 * Sets the value of the 'eighthAttribute' attribute.
+	 * Sets the value of the '_eighthAttribute' attribute.
 	 * 
-	 * @param neweighthAttribute
-	 *       Sets the value of the field 'eighthAttribute'.
+	 * @param new_eighthAttribute
+	 *       Sets the value of the field '_eighthAttribute'.
 	 * <!-- End of user code -->
 	 */
-	def setEighthAttribute(neweighthAttribute: char)
+	def eighthAttribute_(new_eighthAttribute: Char)
 	
 	/**
 	 * <!-- Start of user code for the accessor ninthAttribute -->
-	 * ScalaDoc of ninthAttribute.
+	 * ScalaDoc of _ninthAttribute.
 	 * 
-	 * Returns the value of the 'ninthAttribute' attribute.
+	 * Returns the value of the '_ninthAttribute' attribute.
 	 * 
 	 * @return
-	 *       The value of the field 'ninthAttribute'.
+	 *       The value of the field '_ninthAttribute'.
 	 * @model
 	 * <!-- End of user code -->
 	 */
 	def ninthAttribute(): Character
 	
 	/**
-	 * <!-- Start of user code for the mutator setNinthAttribute -->
-	 * ScalaDoc of setNinthAttribute.
+	 * <!-- Start of user code for the mutator ninthAttribute_ -->
+	 * ScalaDoc of ninthAttribute_.
 	 * 
-	 * Sets the value of the 'ninthAttribute' attribute.
+	 * Sets the value of the '_ninthAttribute' attribute.
 	 * 
-	 * @param newninthAttribute
-	 *       Sets the value of the field 'ninthAttribute'.
+	 * @param new_ninthAttribute
+	 *       Sets the value of the field '_ninthAttribute'.
 	 * <!-- End of user code -->
 	 */
-	def setNinthAttribute(newninthAttribute: Character)
+	def ninthAttribute_(new_ninthAttribute: Character)
 	
 	/**
 	 * <!-- Start of user code for the accessor tenthAttribute -->
-	 * ScalaDoc of tenthAttribute.
+	 * ScalaDoc of _tenthAttribute.
 	 * 
-	 * Returns the value of the 'tenthAttribute' attribute.
+	 * Returns the value of the '_tenthAttribute' attribute.
 	 * 
 	 * @return
-	 *       The value of the field 'tenthAttribute'.
+	 *       The value of the field '_tenthAttribute'.
 	 * @model
 	 * <!-- End of user code -->
 	 */
 	def tenthAttribute(): Date
 	
 	/**
-	 * <!-- Start of user code for the mutator setTenthAttribute -->
-	 * ScalaDoc of setTenthAttribute.
+	 * <!-- Start of user code for the mutator tenthAttribute_ -->
+	 * ScalaDoc of tenthAttribute_.
 	 * 
-	 * Sets the value of the 'tenthAttribute' attribute.
+	 * Sets the value of the '_tenthAttribute' attribute.
 	 * 
-	 * @param newtenthAttribute
-	 *       Sets the value of the field 'tenthAttribute'.
+	 * @param new_tenthAttribute
+	 *       Sets the value of the field '_tenthAttribute'.
 	 * <!-- End of user code -->
 	 */
-	def setTenthAttribute(newtenthAttribute: Date)
+	def tenthAttribute_(new_tenthAttribute: Date)
 	
 	/**
 	 * <!-- Start of user code for the accessor eleventhAttribute -->
-	 * ScalaDoc of eleventhAttribute.
+	 * ScalaDoc of _eleventhAttribute.
 	 * 
-	 * Returns the value of the 'eleventhAttribute' attribute.
+	 * Returns the value of the '_eleventhAttribute' attribute.
 	 * 
 	 * @return
-	 *       The value of the field 'eleventhAttribute'.
+	 *       The value of the field '_eleventhAttribute'.
 	 * @model
 	 * <!-- End of user code -->
 	 */
 	def eleventhAttribute(): DiagnosticChain
 	
 	/**
-	 * <!-- Start of user code for the mutator setEleventhAttribute -->
-	 * ScalaDoc of setEleventhAttribute.
+	 * <!-- Start of user code for the mutator eleventhAttribute_ -->
+	 * ScalaDoc of eleventhAttribute_.
 	 * 
-	 * Sets the value of the 'eleventhAttribute' attribute.
+	 * Sets the value of the '_eleventhAttribute' attribute.
 	 * 
-	 * @param neweleventhAttribute
-	 *       Sets the value of the field 'eleventhAttribute'.
+	 * @param new_eleventhAttribute
+	 *       Sets the value of the field '_eleventhAttribute'.
 	 * <!-- End of user code -->
 	 */
-	def setEleventhAttribute(neweleventhAttribute: DiagnosticChain)
+	def eleventhAttribute_(new_eleventhAttribute: DiagnosticChain)
 	
 	/**
 	 * <!-- Start of user code for the accessor twelfthAttribute -->
-	 * ScalaDoc of twelfthAttribute.
+	 * ScalaDoc of _twelfthAttribute.
 	 * 
-	 * Returns the value of the 'twelfthAttribute' attribute.
+	 * Returns the value of the '_twelfthAttribute' attribute.
 	 * 
 	 * @return
-	 *       The value of the field 'twelfthAttribute'.
+	 *       The value of the field '_twelfthAttribute'.
 	 * @model
 	 * <!-- End of user code -->
 	 */
-	def twelfthAttribute(): double
+	def twelfthAttribute(): Double
 	
 	/**
-	 * <!-- Start of user code for the mutator setTwelfthAttribute -->
-	 * ScalaDoc of setTwelfthAttribute.
+	 * <!-- Start of user code for the mutator twelfthAttribute_ -->
+	 * ScalaDoc of twelfthAttribute_.
 	 * 
-	 * Sets the value of the 'twelfthAttribute' attribute.
+	 * Sets the value of the '_twelfthAttribute' attribute.
 	 * 
-	 * @param newtwelfthAttribute
-	 *       Sets the value of the field 'twelfthAttribute'.
+	 * @param new_twelfthAttribute
+	 *       Sets the value of the field '_twelfthAttribute'.
 	 * <!-- End of user code -->
 	 */
-	def setTwelfthAttribute(newtwelfthAttribute: double)
+	def twelfthAttribute_(new_twelfthAttribute: Double)
 	
 	/**
 	 * <!-- Start of user code for the accessor thirteenthAttribute -->
-	 * ScalaDoc of thirteenthAttribute.
+	 * ScalaDoc of _thirteenthAttribute.
 	 * 
-	 * Returns the value of the 'thirteenthAttribute' attribute.
+	 * Returns the value of the '_thirteenthAttribute' attribute.
 	 * 
 	 * @return
-	 *       The value of the field 'thirteenthAttribute'.
+	 *       The value of the field '_thirteenthAttribute'.
 	 * @model
 	 * <!-- End of user code -->
 	 */
 	def thirteenthAttribute(): Double
 	
 	/**
-	 * <!-- Start of user code for the mutator setThirteenthAttribute -->
-	 * ScalaDoc of setThirteenthAttribute.
+	 * <!-- Start of user code for the mutator thirteenthAttribute_ -->
+	 * ScalaDoc of thirteenthAttribute_.
 	 * 
-	 * Sets the value of the 'thirteenthAttribute' attribute.
+	 * Sets the value of the '_thirteenthAttribute' attribute.
 	 * 
-	 * @param newthirteenthAttribute
-	 *       Sets the value of the field 'thirteenthAttribute'.
+	 * @param new_thirteenthAttribute
+	 *       Sets the value of the field '_thirteenthAttribute'.
 	 * <!-- End of user code -->
 	 */
-	def setThirteenthAttribute(newthirteenthAttribute: Double)
+	def thirteenthAttribute_(new_thirteenthAttribute: Double)
 	
 	/**
 	 * <!-- Start of user code for the accessor fourteenthAttribute -->
-	 * ScalaDoc of fourteenthAttribute.
+	 * ScalaDoc of _fourteenthAttribute.
 	 * 
-	 * Returns the value of the 'fourteenthAttribute' attribute.
+	 * Returns the value of the '_fourteenthAttribute' attribute.
 	 * 
 	 * @return
-	 *       The value of the field 'fourteenthAttribute'.
+	 *       The value of the field '_fourteenthAttribute'.
 	 * @model
 	 * <!-- End of user code -->
 	 */
-	def fourteenthAttribute(): EList
+	def fourteenthAttribute(): List
 	
 	/**
-	 * <!-- Start of user code for the mutator setFourteenthAttribute -->
-	 * ScalaDoc of setFourteenthAttribute.
+	 * <!-- Start of user code for the mutator fourteenthAttribute_ -->
+	 * ScalaDoc of fourteenthAttribute_.
 	 * 
-	 * Sets the value of the 'fourteenthAttribute' attribute.
+	 * Sets the value of the '_fourteenthAttribute' attribute.
 	 * 
-	 * @param newfourteenthAttribute
-	 *       Sets the value of the field 'fourteenthAttribute'.
+	 * @param new_fourteenthAttribute
+	 *       Sets the value of the field '_fourteenthAttribute'.
 	 * <!-- End of user code -->
 	 */
-	def setFourteenthAttribute(newfourteenthAttribute: EList)
+	def fourteenthAttribute_(new_fourteenthAttribute: List)
 	
 	/**
 	 * <!-- Start of user code for the accessor fifteenthAttribute -->
-	 * ScalaDoc of fifteenthAttribute.
+	 * ScalaDoc of _fifteenthAttribute.
 	 * 
-	 * Returns the value of the 'fifteenthAttribute' attribute.
+	 * Returns the value of the '_fifteenthAttribute' attribute.
 	 * 
 	 * @return
-	 *       The value of the field 'fifteenthAttribute'.
+	 *       The value of the field '_fifteenthAttribute'.
 	 * @model
 	 * <!-- End of user code -->
 	 */
 	def fifteenthAttribute(): Enumerator
 	
 	/**
-	 * <!-- Start of user code for the mutator setFifteenthAttribute -->
-	 * ScalaDoc of setFifteenthAttribute.
+	 * <!-- Start of user code for the mutator fifteenthAttribute_ -->
+	 * ScalaDoc of fifteenthAttribute_.
 	 * 
-	 * Sets the value of the 'fifteenthAttribute' attribute.
+	 * Sets the value of the '_fifteenthAttribute' attribute.
 	 * 
-	 * @param newfifteenthAttribute
-	 *       Sets the value of the field 'fifteenthAttribute'.
+	 * @param new_fifteenthAttribute
+	 *       Sets the value of the field '_fifteenthAttribute'.
 	 * <!-- End of user code -->
 	 */
-	def setFifteenthAttribute(newfifteenthAttribute: Enumerator)
+	def fifteenthAttribute_(new_fifteenthAttribute: Enumerator)
 	
 	/**
 	 * <!-- Start of user code for the accessor sixteenthAttribute -->
-	 * ScalaDoc of sixteenthAttribute.
+	 * ScalaDoc of _sixteenthAttribute.
 	 * 
-	 * Returns the value of the 'sixteenthAttribute' attribute.
+	 * Returns the value of the '_sixteenthAttribute' attribute.
 	 * 
 	 * @return
-	 *       The value of the field 'sixteenthAttribute'.
+	 *       The value of the field '_sixteenthAttribute'.
 	 * @model
 	 * <!-- End of user code -->
 	 */
 	def sixteenthAttribute(): FeatureMap
 	
 	/**
-	 * <!-- Start of user code for the mutator setSixteenthAttribute -->
-	 * ScalaDoc of setSixteenthAttribute.
+	 * <!-- Start of user code for the mutator sixteenthAttribute_ -->
+	 * ScalaDoc of sixteenthAttribute_.
 	 * 
-	 * Sets the value of the 'sixteenthAttribute' attribute.
+	 * Sets the value of the '_sixteenthAttribute' attribute.
 	 * 
-	 * @param newsixteenthAttribute
-	 *       Sets the value of the field 'sixteenthAttribute'.
+	 * @param new_sixteenthAttribute
+	 *       Sets the value of the field '_sixteenthAttribute'.
 	 * <!-- End of user code -->
 	 */
-	def setSixteenthAttribute(newsixteenthAttribute: FeatureMap)
+	def sixteenthAttribute_(new_sixteenthAttribute: FeatureMap)
 	
 	/**
 	 * <!-- Start of user code for the accessor seventeenthAttribute -->
-	 * ScalaDoc of seventeenthAttribute.
+	 * ScalaDoc of _seventeenthAttribute.
 	 * 
-	 * Returns the value of the 'seventeenthAttribute' attribute.
+	 * Returns the value of the '_seventeenthAttribute' attribute.
 	 * 
 	 * @return
-	 *       The value of the field 'seventeenthAttribute'.
+	 *       The value of the field '_seventeenthAttribute'.
 	 * @model
 	 * <!-- End of user code -->
 	 */
 	def seventeenthAttribute(): FeatureMap$Entry
 	
 	/**
-	 * <!-- Start of user code for the mutator setSeventeenthAttribute -->
-	 * ScalaDoc of setSeventeenthAttribute.
+	 * <!-- Start of user code for the mutator seventeenthAttribute_ -->
+	 * ScalaDoc of seventeenthAttribute_.
 	 * 
-	 * Sets the value of the 'seventeenthAttribute' attribute.
+	 * Sets the value of the '_seventeenthAttribute' attribute.
 	 * 
-	 * @param newseventeenthAttribute
-	 *       Sets the value of the field 'seventeenthAttribute'.
+	 * @param new_seventeenthAttribute
+	 *       Sets the value of the field '_seventeenthAttribute'.
 	 * <!-- End of user code -->
 	 */
-	def setSeventeenthAttribute(newseventeenthAttribute: FeatureMap$Entry)
+	def seventeenthAttribute_(new_seventeenthAttribute: FeatureMap$Entry)
 	
 	/**
 	 * <!-- Start of user code for the accessor eighteenthAttribute -->
-	 * ScalaDoc of eighteenthAttribute.
+	 * ScalaDoc of _eighteenthAttribute.
 	 * 
-	 * Returns the value of the 'eighteenthAttribute' attribute.
+	 * Returns the value of the '_eighteenthAttribute' attribute.
 	 * 
 	 * @return
-	 *       The value of the field 'eighteenthAttribute'.
+	 *       The value of the field '_eighteenthAttribute'.
 	 * @model
 	 * <!-- End of user code -->
 	 */
-	def eighteenthAttribute(): float
+	def eighteenthAttribute(): Float
 	
 	/**
-	 * <!-- Start of user code for the mutator setEighteenthAttribute -->
-	 * ScalaDoc of setEighteenthAttribute.
+	 * <!-- Start of user code for the mutator eighteenthAttribute_ -->
+	 * ScalaDoc of eighteenthAttribute_.
 	 * 
-	 * Sets the value of the 'eighteenthAttribute' attribute.
+	 * Sets the value of the '_eighteenthAttribute' attribute.
 	 * 
-	 * @param neweighteenthAttribute
-	 *       Sets the value of the field 'eighteenthAttribute'.
+	 * @param new_eighteenthAttribute
+	 *       Sets the value of the field '_eighteenthAttribute'.
 	 * <!-- End of user code -->
 	 */
-	def setEighteenthAttribute(neweighteenthAttribute: float)
+	def eighteenthAttribute_(new_eighteenthAttribute: Float)
 	
 	/**
 	 * <!-- Start of user code for the accessor nineteenthAttribute -->
-	 * ScalaDoc of nineteenthAttribute.
+	 * ScalaDoc of _nineteenthAttribute.
 	 * 
-	 * Returns the value of the 'nineteenthAttribute' attribute.
+	 * Returns the value of the '_nineteenthAttribute' attribute.
 	 * 
 	 * @return
-	 *       The value of the field 'nineteenthAttribute'.
+	 *       The value of the field '_nineteenthAttribute'.
 	 * @model
 	 * <!-- End of user code -->
 	 */
 	def nineteenthAttribute(): Float
 	
 	/**
-	 * <!-- Start of user code for the mutator setNineteenthAttribute -->
-	 * ScalaDoc of setNineteenthAttribute.
+	 * <!-- Start of user code for the mutator nineteenthAttribute_ -->
+	 * ScalaDoc of nineteenthAttribute_.
 	 * 
-	 * Sets the value of the 'nineteenthAttribute' attribute.
+	 * Sets the value of the '_nineteenthAttribute' attribute.
 	 * 
-	 * @param newnineteenthAttribute
-	 *       Sets the value of the field 'nineteenthAttribute'.
+	 * @param new_nineteenthAttribute
+	 *       Sets the value of the field '_nineteenthAttribute'.
 	 * <!-- End of user code -->
 	 */
-	def setNineteenthAttribute(newnineteenthAttribute: Float)
+	def nineteenthAttribute_(new_nineteenthAttribute: Float)
 	
 	/**
 	 * <!-- Start of user code for the accessor twentiethAttribute -->
-	 * ScalaDoc of twentiethAttribute.
+	 * ScalaDoc of _twentiethAttribute.
 	 * 
-	 * Returns the value of the 'twentiethAttribute' attribute.
+	 * Returns the value of the '_twentiethAttribute' attribute.
 	 * 
 	 * @return
-	 *       The value of the field 'twentiethAttribute'.
+	 *       The value of the field '_twentiethAttribute'.
 	 * @model
 	 * <!-- End of user code -->
 	 */
-	def twentiethAttribute(): int
+	def twentiethAttribute(): Int
 	
 	/**
-	 * <!-- Start of user code for the mutator setTwentiethAttribute -->
-	 * ScalaDoc of setTwentiethAttribute.
+	 * <!-- Start of user code for the mutator twentiethAttribute_ -->
+	 * ScalaDoc of twentiethAttribute_.
 	 * 
-	 * Sets the value of the 'twentiethAttribute' attribute.
+	 * Sets the value of the '_twentiethAttribute' attribute.
 	 * 
-	 * @param newtwentiethAttribute
-	 *       Sets the value of the field 'twentiethAttribute'.
+	 * @param new_twentiethAttribute
+	 *       Sets the value of the field '_twentiethAttribute'.
 	 * <!-- End of user code -->
 	 */
-	def setTwentiethAttribute(newtwentiethAttribute: int)
+	def twentiethAttribute_(new_twentiethAttribute: Int)
 	
 	/**
 	 * <!-- Start of user code for the accessor twentyFirstAttribute -->
-	 * ScalaDoc of twentyFirstAttribute.
+	 * ScalaDoc of _twentyFirstAttribute.
 	 * 
-	 * Returns the value of the 'twentyFirstAttribute' attribute.
+	 * Returns the value of the '_twentyFirstAttribute' attribute.
 	 * 
 	 * @return
-	 *       The value of the field 'twentyFirstAttribute'.
+	 *       The value of the field '_twentyFirstAttribute'.
 	 * @model
 	 * <!-- End of user code -->
 	 */
 	def twentyFirstAttribute(): Integer
 	
 	/**
-	 * <!-- Start of user code for the mutator setTwentyFirstAttribute -->
-	 * ScalaDoc of setTwentyFirstAttribute.
+	 * <!-- Start of user code for the mutator twentyFirstAttribute_ -->
+	 * ScalaDoc of twentyFirstAttribute_.
 	 * 
-	 * Sets the value of the 'twentyFirstAttribute' attribute.
+	 * Sets the value of the '_twentyFirstAttribute' attribute.
 	 * 
-	 * @param newtwentyFirstAttribute
-	 *       Sets the value of the field 'twentyFirstAttribute'.
+	 * @param new_twentyFirstAttribute
+	 *       Sets the value of the field '_twentyFirstAttribute'.
 	 * <!-- End of user code -->
 	 */
-	def setTwentyFirstAttribute(newtwentyFirstAttribute: Integer)
+	def twentyFirstAttribute_(new_twentyFirstAttribute: Integer)
 	
 	/**
 	 * <!-- Start of user code for the accessor twentySecondAttribute -->
-	 * ScalaDoc of twentySecondAttribute.
+	 * ScalaDoc of _twentySecondAttribute.
 	 * 
-	 * Returns the value of the 'twentySecondAttribute' attribute.
+	 * Returns the value of the '_twentySecondAttribute' attribute.
 	 * 
 	 * @return
-	 *       The value of the field 'twentySecondAttribute'.
+	 *       The value of the field '_twentySecondAttribute'.
 	 * @model
 	 * <!-- End of user code -->
 	 */
 	def twentySecondAttribute(): InvocationTargetException
 	
 	/**
-	 * <!-- Start of user code for the mutator setTwentySecondAttribute -->
-	 * ScalaDoc of setTwentySecondAttribute.
+	 * <!-- Start of user code for the mutator twentySecondAttribute_ -->
+	 * ScalaDoc of twentySecondAttribute_.
 	 * 
-	 * Sets the value of the 'twentySecondAttribute' attribute.
+	 * Sets the value of the '_twentySecondAttribute' attribute.
 	 * 
-	 * @param newtwentySecondAttribute
-	 *       Sets the value of the field 'twentySecondAttribute'.
+	 * @param new_twentySecondAttribute
+	 *       Sets the value of the field '_twentySecondAttribute'.
 	 * <!-- End of user code -->
 	 */
-	def setTwentySecondAttribute(newtwentySecondAttribute: InvocationTargetException)
+	def twentySecondAttribute_(new_twentySecondAttribute: InvocationTargetException)
 	
 	/**
 	 * <!-- Start of user code for the accessor twentyThirdAttribute -->
-	 * ScalaDoc of twentyThirdAttribute.
+	 * ScalaDoc of _twentyThirdAttribute.
 	 * 
-	 * Returns the value of the 'twentyThirdAttribute' attribute.
+	 * Returns the value of the '_twentyThirdAttribute' attribute.
 	 * 
 	 * @return
-	 *       The value of the field 'twentyThirdAttribute'.
+	 *       The value of the field '_twentyThirdAttribute'.
 	 * @model
 	 * <!-- End of user code -->
 	 */
 	def twentyThirdAttribute(): Class
 	
 	/**
-	 * <!-- Start of user code for the mutator setTwentyThirdAttribute -->
-	 * ScalaDoc of setTwentyThirdAttribute.
+	 * <!-- Start of user code for the mutator twentyThirdAttribute_ -->
+	 * ScalaDoc of twentyThirdAttribute_.
 	 * 
-	 * Sets the value of the 'twentyThirdAttribute' attribute.
+	 * Sets the value of the '_twentyThirdAttribute' attribute.
 	 * 
-	 * @param newtwentyThirdAttribute
-	 *       Sets the value of the field 'twentyThirdAttribute'.
+	 * @param new_twentyThirdAttribute
+	 *       Sets the value of the field '_twentyThirdAttribute'.
 	 * <!-- End of user code -->
 	 */
-	def setTwentyThirdAttribute(newtwentyThirdAttribute: Class)
+	def twentyThirdAttribute_(new_twentyThirdAttribute: Class)
 	
 	/**
 	 * <!-- Start of user code for the accessor twentyFourthAttribute -->
-	 * ScalaDoc of twentyFourthAttribute.
+	 * ScalaDoc of _twentyFourthAttribute.
 	 * 
-	 * Returns the value of the 'twentyFourthAttribute' attribute.
+	 * Returns the value of the '_twentyFourthAttribute' attribute.
 	 * 
 	 * @return
-	 *       The value of the field 'twentyFourthAttribute'.
+	 *       The value of the field '_twentyFourthAttribute'.
 	 * @model
 	 * <!-- End of user code -->
 	 */
 	def twentyFourthAttribute(): Object
 	
 	/**
-	 * <!-- Start of user code for the mutator setTwentyFourthAttribute -->
-	 * ScalaDoc of setTwentyFourthAttribute.
+	 * <!-- Start of user code for the mutator twentyFourthAttribute_ -->
+	 * ScalaDoc of twentyFourthAttribute_.
 	 * 
-	 * Sets the value of the 'twentyFourthAttribute' attribute.
+	 * Sets the value of the '_twentyFourthAttribute' attribute.
 	 * 
-	 * @param newtwentyFourthAttribute
-	 *       Sets the value of the field 'twentyFourthAttribute'.
+	 * @param new_twentyFourthAttribute
+	 *       Sets the value of the field '_twentyFourthAttribute'.
 	 * <!-- End of user code -->
 	 */
-	def setTwentyFourthAttribute(newtwentyFourthAttribute: Object)
+	def twentyFourthAttribute_(new_twentyFourthAttribute: Object)
 	
 	/**
 	 * <!-- Start of user code for the accessor twentyFifthAttribute -->
-	 * ScalaDoc of twentyFifthAttribute.
+	 * ScalaDoc of _twentyFifthAttribute.
 	 * 
-	 * Returns the value of the 'twentyFifthAttribute' attribute.
+	 * Returns the value of the '_twentyFifthAttribute' attribute.
 	 * 
 	 * @return
-	 *       The value of the field 'twentyFifthAttribute'.
+	 *       The value of the field '_twentyFifthAttribute'.
 	 * @model
 	 * <!-- End of user code -->
 	 */
-	def twentyFifthAttribute(): long
+	def twentyFifthAttribute(): Long
 	
 	/**
-	 * <!-- Start of user code for the mutator setTwentyFifthAttribute -->
-	 * ScalaDoc of setTwentyFifthAttribute.
+	 * <!-- Start of user code for the mutator twentyFifthAttribute_ -->
+	 * ScalaDoc of twentyFifthAttribute_.
 	 * 
-	 * Sets the value of the 'twentyFifthAttribute' attribute.
+	 * Sets the value of the '_twentyFifthAttribute' attribute.
 	 * 
-	 * @param newtwentyFifthAttribute
-	 *       Sets the value of the field 'twentyFifthAttribute'.
+	 * @param new_twentyFifthAttribute
+	 *       Sets the value of the field '_twentyFifthAttribute'.
 	 * <!-- End of user code -->
 	 */
-	def setTwentyFifthAttribute(newtwentyFifthAttribute: long)
+	def twentyFifthAttribute_(new_twentyFifthAttribute: Long)
 	
 	/**
 	 * <!-- Start of user code for the accessor twentySixthAttribute -->
-	 * ScalaDoc of twentySixthAttribute.
+	 * ScalaDoc of _twentySixthAttribute.
 	 * 
-	 * Returns the value of the 'twentySixthAttribute' attribute.
+	 * Returns the value of the '_twentySixthAttribute' attribute.
 	 * 
 	 * @return
-	 *       The value of the field 'twentySixthAttribute'.
+	 *       The value of the field '_twentySixthAttribute'.
 	 * @model
 	 * <!-- End of user code -->
 	 */
 	def twentySixthAttribute(): Long
 	
 	/**
-	 * <!-- Start of user code for the mutator setTwentySixthAttribute -->
-	 * ScalaDoc of setTwentySixthAttribute.
+	 * <!-- Start of user code for the mutator twentySixthAttribute_ -->
+	 * ScalaDoc of twentySixthAttribute_.
 	 * 
-	 * Sets the value of the 'twentySixthAttribute' attribute.
+	 * Sets the value of the '_twentySixthAttribute' attribute.
 	 * 
-	 * @param newtwentySixthAttribute
-	 *       Sets the value of the field 'twentySixthAttribute'.
+	 * @param new_twentySixthAttribute
+	 *       Sets the value of the field '_twentySixthAttribute'.
 	 * <!-- End of user code -->
 	 */
-	def setTwentySixthAttribute(newtwentySixthAttribute: Long)
+	def twentySixthAttribute_(new_twentySixthAttribute: Long)
 	
 	/**
 	 * <!-- Start of user code for the accessor twentySeventhAttribute -->
-	 * ScalaDoc of twentySeventhAttribute.
+	 * ScalaDoc of _twentySeventhAttribute.
 	 * 
-	 * Returns the value of the 'twentySeventhAttribute' attribute.
+	 * Returns the value of the '_twentySeventhAttribute' attribute.
 	 * 
 	 * @return
-	 *       The value of the field 'twentySeventhAttribute'.
+	 *       The value of the field '_twentySeventhAttribute'.
 	 * @model
 	 * <!-- End of user code -->
 	 */
 	def twentySeventhAttribute(): Map
 	
 	/**
-	 * <!-- Start of user code for the mutator setTwentySeventhAttribute -->
-	 * ScalaDoc of setTwentySeventhAttribute.
+	 * <!-- Start of user code for the mutator twentySeventhAttribute_ -->
+	 * ScalaDoc of twentySeventhAttribute_.
 	 * 
-	 * Sets the value of the 'twentySeventhAttribute' attribute.
+	 * Sets the value of the '_twentySeventhAttribute' attribute.
 	 * 
-	 * @param newtwentySeventhAttribute
-	 *       Sets the value of the field 'twentySeventhAttribute'.
+	 * @param new_twentySeventhAttribute
+	 *       Sets the value of the field '_twentySeventhAttribute'.
 	 * <!-- End of user code -->
 	 */
-	def setTwentySeventhAttribute(newtwentySeventhAttribute: Map)
+	def twentySeventhAttribute_(new_twentySeventhAttribute: Map)
 	
 	/**
 	 * <!-- Start of user code for the accessor twentyEighthAttribute -->
-	 * ScalaDoc of twentyEighthAttribute.
+	 * ScalaDoc of _twentyEighthAttribute.
 	 * 
-	 * Returns the value of the 'twentyEighthAttribute' attribute.
+	 * Returns the value of the '_twentyEighthAttribute' attribute.
 	 * 
 	 * @return
-	 *       The value of the field 'twentyEighthAttribute'.
+	 *       The value of the field '_twentyEighthAttribute'.
 	 * @model
 	 * <!-- End of user code -->
 	 */
 	def twentyEighthAttribute(): Resource
 	
 	/**
-	 * <!-- Start of user code for the mutator setTwentyEighthAttribute -->
-	 * ScalaDoc of setTwentyEighthAttribute.
+	 * <!-- Start of user code for the mutator twentyEighthAttribute_ -->
+	 * ScalaDoc of twentyEighthAttribute_.
 	 * 
-	 * Sets the value of the 'twentyEighthAttribute' attribute.
+	 * Sets the value of the '_twentyEighthAttribute' attribute.
 	 * 
-	 * @param newtwentyEighthAttribute
-	 *       Sets the value of the field 'twentyEighthAttribute'.
+	 * @param new_twentyEighthAttribute
+	 *       Sets the value of the field '_twentyEighthAttribute'.
 	 * <!-- End of user code -->
 	 */
-	def setTwentyEighthAttribute(newtwentyEighthAttribute: Resource)
+	def twentyEighthAttribute_(new_twentyEighthAttribute: Resource)
 	
 	/**
 	 * <!-- Start of user code for the accessor twentyNinthAttribute -->
-	 * ScalaDoc of twentyNinthAttribute.
+	 * ScalaDoc of _twentyNinthAttribute.
 	 * 
-	 * Returns the value of the 'twentyNinthAttribute' attribute.
+	 * Returns the value of the '_twentyNinthAttribute' attribute.
 	 * 
 	 * @return
-	 *       The value of the field 'twentyNinthAttribute'.
+	 *       The value of the field '_twentyNinthAttribute'.
 	 * @model
 	 * <!-- End of user code -->
 	 */
 	def twentyNinthAttribute(): ResourceSet
 	
 	/**
-	 * <!-- Start of user code for the mutator setTwentyNinthAttribute -->
-	 * ScalaDoc of setTwentyNinthAttribute.
+	 * <!-- Start of user code for the mutator twentyNinthAttribute_ -->
+	 * ScalaDoc of twentyNinthAttribute_.
 	 * 
-	 * Sets the value of the 'twentyNinthAttribute' attribute.
+	 * Sets the value of the '_twentyNinthAttribute' attribute.
 	 * 
-	 * @param newtwentyNinthAttribute
-	 *       Sets the value of the field 'twentyNinthAttribute'.
+	 * @param new_twentyNinthAttribute
+	 *       Sets the value of the field '_twentyNinthAttribute'.
 	 * <!-- End of user code -->
 	 */
-	def setTwentyNinthAttribute(newtwentyNinthAttribute: ResourceSet)
+	def twentyNinthAttribute_(new_twentyNinthAttribute: ResourceSet)
 	
 	/**
 	 * <!-- Start of user code for the accessor thirtiethAttribute -->
-	 * ScalaDoc of thirtiethAttribute.
+	 * ScalaDoc of _thirtiethAttribute.
 	 * 
-	 * Returns the value of the 'thirtiethAttribute' attribute.
+	 * Returns the value of the '_thirtiethAttribute' attribute.
 	 * 
 	 * @return
-	 *       The value of the field 'thirtiethAttribute'.
+	 *       The value of the field '_thirtiethAttribute'.
 	 * @model
 	 * <!-- End of user code -->
 	 */
-	def thirtiethAttribute(): short
+	def thirtiethAttribute(): Short
 	
 	/**
-	 * <!-- Start of user code for the mutator setThirtiethAttribute -->
-	 * ScalaDoc of setThirtiethAttribute.
+	 * <!-- Start of user code for the mutator thirtiethAttribute_ -->
+	 * ScalaDoc of thirtiethAttribute_.
 	 * 
-	 * Sets the value of the 'thirtiethAttribute' attribute.
+	 * Sets the value of the '_thirtiethAttribute' attribute.
 	 * 
-	 * @param newthirtiethAttribute
-	 *       Sets the value of the field 'thirtiethAttribute'.
+	 * @param new_thirtiethAttribute
+	 *       Sets the value of the field '_thirtiethAttribute'.
 	 * <!-- End of user code -->
 	 */
-	def setThirtiethAttribute(newthirtiethAttribute: short)
+	def thirtiethAttribute_(new_thirtiethAttribute: Short)
 	
 	/**
 	 * <!-- Start of user code for the accessor thirtyFirstAttribute -->
-	 * ScalaDoc of thirtyFirstAttribute.
+	 * ScalaDoc of _thirtyFirstAttribute.
 	 * 
-	 * Returns the value of the 'thirtyFirstAttribute' attribute.
+	 * Returns the value of the '_thirtyFirstAttribute' attribute.
 	 * 
 	 * @return
-	 *       The value of the field 'thirtyFirstAttribute'.
+	 *       The value of the field '_thirtyFirstAttribute'.
 	 * @model
 	 * <!-- End of user code -->
 	 */
 	def thirtyFirstAttribute(): Short
 	
 	/**
-	 * <!-- Start of user code for the mutator setThirtyFirstAttribute -->
-	 * ScalaDoc of setThirtyFirstAttribute.
+	 * <!-- Start of user code for the mutator thirtyFirstAttribute_ -->
+	 * ScalaDoc of thirtyFirstAttribute_.
 	 * 
-	 * Sets the value of the 'thirtyFirstAttribute' attribute.
+	 * Sets the value of the '_thirtyFirstAttribute' attribute.
 	 * 
-	 * @param newthirtyFirstAttribute
-	 *       Sets the value of the field 'thirtyFirstAttribute'.
+	 * @param new_thirtyFirstAttribute
+	 *       Sets the value of the field '_thirtyFirstAttribute'.
 	 * <!-- End of user code -->
 	 */
-	def setThirtyFirstAttribute(newthirtyFirstAttribute: Short)
+	def thirtyFirstAttribute_(new_thirtyFirstAttribute: Short)
 	
 	/**
 	 * <!-- Start of user code for the accessor thirtySecondAttribute -->
-	 * ScalaDoc of thirtySecondAttribute.
+	 * ScalaDoc of _thirtySecondAttribute.
 	 * 
-	 * Returns the value of the 'thirtySecondAttribute' attribute.
+	 * Returns the value of the '_thirtySecondAttribute' attribute.
 	 * 
 	 * @return
-	 *       The value of the field 'thirtySecondAttribute'.
+	 *       The value of the field '_thirtySecondAttribute'.
 	 * @model
 	 * <!-- End of user code -->
 	 */
 	def thirtySecondAttribute(): String
 	
 	/**
-	 * <!-- Start of user code for the mutator setThirtySecondAttribute -->
-	 * ScalaDoc of setThirtySecondAttribute.
+	 * <!-- Start of user code for the mutator thirtySecondAttribute_ -->
+	 * ScalaDoc of thirtySecondAttribute_.
 	 * 
-	 * Sets the value of the 'thirtySecondAttribute' attribute.
+	 * Sets the value of the '_thirtySecondAttribute' attribute.
 	 * 
-	 * @param newthirtySecondAttribute
-	 *       Sets the value of the field 'thirtySecondAttribute'.
+	 * @param new_thirtySecondAttribute
+	 *       Sets the value of the field '_thirtySecondAttribute'.
 	 * <!-- End of user code -->
 	 */
-	def setThirtySecondAttribute(newthirtySecondAttribute: String)
+	def thirtySecondAttribute_(new_thirtySecondAttribute: String)
 	
 	/**
 	 * <!-- Start of user code for the accessor thirtyThirdAttribute -->
-	 * ScalaDoc of thirtyThirdAttribute.
+	 * ScalaDoc of _thirtyThirdAttribute.
 	 * 
-	 * Returns the value of the 'thirtyThirdAttribute' attribute.
+	 * Returns the value of the '_thirtyThirdAttribute' attribute.
 	 * 
 	 * @return
-	 *       The value of the field 'thirtyThirdAttribute'.
+	 *       The value of the field '_thirtyThirdAttribute'.
 	 * @model
 	 * <!-- End of user code -->
 	 */
 	def thirtyThirdAttribute(): TreeIterator
 	
 	/**
-	 * <!-- Start of user code for the mutator setThirtyThirdAttribute -->
-	 * ScalaDoc of setThirtyThirdAttribute.
+	 * <!-- Start of user code for the mutator thirtyThirdAttribute_ -->
+	 * ScalaDoc of thirtyThirdAttribute_.
 	 * 
-	 * Sets the value of the 'thirtyThirdAttribute' attribute.
+	 * Sets the value of the '_thirtyThirdAttribute' attribute.
 	 * 
-	 * @param newthirtyThirdAttribute
-	 *       Sets the value of the field 'thirtyThirdAttribute'.
+	 * @param new_thirtyThirdAttribute
+	 *       Sets the value of the field '_thirtyThirdAttribute'.
 	 * <!-- End of user code -->
 	 */
-	def setThirtyThirdAttribute(newthirtyThirdAttribute: TreeIterator)
+	def thirtyThirdAttribute_(new_thirtyThirdAttribute: TreeIterator)
 }

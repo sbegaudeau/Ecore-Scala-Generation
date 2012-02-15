@@ -4,7 +4,6 @@
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
- * 
  * Contributors:
  *     Stephane Begaudeau (Obeo) - initial API and implementation
  */
@@ -18,28 +17,28 @@ package org.obeonetwork.pim.ecore.gen.scala.gen;
  * ScalaDoc of UnsettableAttributesClass.
  * 
  * The following features are implemented:
- * - UnsettableAttributesClassImpl#firstAttribute
+ * - UnsettableAttributesClassImpl#_firstAttribute
  * 
  * <!-- End of user code -->
  */
 class UnsettableAttributesClassImpl {
 	/**
-	 * <!-- Start of user code for the attribute firstAttribute -->
-	 * ScalaDoc of firstAttribute.
+	 * <!-- Start of user code for the attribute _firstAttribute -->
+	 * ScalaDoc of _firstAttribute.
 	 * <!-- End of user code -->
 	 */
-	private[this] var firstAttribute: String;
+	private[this] var _firstAttribute: String = "";
 	
 	
 	
 	
 	/**
 	 * <!-- Start of user code for the accessor firstAttribute -->
-	 * ScalaDoc of firstAttribute.
+	 * ScalaDoc of _firstAttribute.
 	 * @inheritdoc
 	 * <!-- End of user code -->
 	 */
-	def firstAttribute(): String {
-		return this.firstAttribute;
+	def firstAttribute(): String = {
+		return this._firstAttribute;
 	}
 }
